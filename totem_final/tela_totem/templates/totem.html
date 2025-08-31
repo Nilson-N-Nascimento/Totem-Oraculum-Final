@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo Interativo - Belém COP 30</title>
+    
+    <!-- Google Fonts: Poppins para um design limpo e moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Configurações Globais e Paleta de Cores --- */
+        :root {
+            /* Paleta de Cores - Sustentabilidade, Amazônia, COP 30 */
+            --cor-fundo: #0a1a1f; /* Azul petróleo / Verde muito escuro */
+            --cor-superficie: #1e3a3a; /* Verde escuro para cards e modais */
+            --cor-primaria: #4c9a76; /* Verde esperança */
+            --cor-destaque: #f3d8a3; /* Areia / Dourado claro */
+            --cor-texto-principal: #e0e0e0; /* Branco suave */
+            --cor-texto-secundario: #b0c4b1; /* Verde acinzentado claro */
+            --cor-sombra: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-principal);
+            overflow: hidden; /* Essencial para a experiência de tela única */
+        }
+
+        /* --- Estrutura Principal da Tela --- */
+        .tela-totem {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* --- Cabeçalho Minimalista --- */
+        .header-principal {
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--cor-superficie);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo-principal {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .titulo-principal h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cor-texto-principal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .titulo-principal h1 .fa-tree-city {
+            color: var(--cor-primaria);
+        }
+        
+        .titulo-principal p {
+            font-size: 1.1rem;
+            color: var(--cor-texto-secundario);
+            margin-top: 5px;
+        }
+
+        /* --- Seletor de Idioma --- */
+        .seletor-idioma {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-idioma {
+            background-color: var(--cor-superficie);
+            color: var(--cor-texto-secundario);
+            border: 2px solid var(--cor-superficie);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-idioma:hover {
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+        }
+
+        .btn-idioma.ativo {
+            background-color: var(--cor-destaque);
+            color: var(--cor-fundo);
+            border-color: var(--cor-destaque);
+        }
+
+        /* --- Grid de Módulos Interativos --- */
+        .container-modulos {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 30px;
+            overflow-y: auto; /* Permite rolar apenas os cards */
+        }
+
+        /* --- Estilo dos Cards (Miniaturas) --- */
+        .card-modulo {
+            background-color: var(--cor-superficie);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 250px;
+            box-shadow: 0 5px 20px var(--cor-sombra);
+            background-size: cover;
+            background-position: center;
+            border: 2px solid transparent;
+        }
+        
+        .card-modulo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent 60%);
+            z-index: 1;
+        }
+
+        .card-modulo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px var(--cor-sombra);
+            border-color: var(--cor-destaque);
+        }
+
+        .card-conteudo {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .card-conteudo .icone {
+            font-size: 3.5rem;
+            color: var(--cor-destaque);
+            margin-bottom: 15px;
+        }
+
+        .card-conteudo h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* --- Janela Modal (Visão Ampliada) --- */
+        .modal-container {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .modal-container.visivel {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-dialogo {
+            background-color: var(--cor-superficie);
+            border-radius: 20px;
+            width: 95%;
+            max-width: 900px;
+            height: 90%;
+            max-height: 750px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.4s ease;
+            box-shadow: 0 0 60px rgba(0,0,0,0.7);
+        }
+        
+        .modal-container.visivel .modal-dialogo {
+            transform: scale(1);
+        }
+
+        .modal-fechar {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 3rem;
+            color: var(--cor-texto-secundario);
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .modal-fechar:hover {
+            color: var(--cor-texto-principal);
+        }
+
+        .modal-corpo {
+            padding: 40px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+        
+        #modal-imagem-destaque {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        #modal-titulo-destaque {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cor-destaque);
+            margin-bottom: 20px;
+        }
+
+        #modal-descricao-detalhada {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--cor-texto-principal);
+        }
+        
+        .modal-corpo::-webkit-scrollbar { width: 10px; }
+        .modal-corpo::-webkit-scrollbar-track { background: var(--cor-fundo); border-radius: 10px; }
+        .modal-corpo::-webkit-scrollbar-thumb { background-color: var(--cor-primaria); border-radius: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="tela-totem">
+        <header class="header-principal">
+            <div class="seletor-idioma">
+                <button class="btn-idioma ativo" data-lang="pt">PT</button>
+                <button class="btn-idioma" data-lang="en">EN</button>
+                <button class="btn-idioma" data-lang="es">ES</button>
+            </div>
+            <div class="titulo-principal">
+                <h1 data-key="main_title"><i class="fa-solid fa-tree-city"></i> Oráculo Belém</h1>
+                <p data-key="main_subtitle">Seu guia interativo para a cidade-sede da COP 30</p>
+            </div>
+            <!-- Espaçador para manter o título centralizado -->
+            <div style="width: 150px;"></div> 
+        </header>
+
+        <main class="container-modulos">
+            <!-- Os cards dos módulos serão inseridos aqui dinamicamente -->
+        </main>
+    </div>
+
+    <!-- Estrutura da Janela Modal (inicialmente oculta) -->
+    <div class="modal-container" id="modal-container">
+        <div class="modal-dialogo">
+            <span class="modal-fechar" id="modal-fechar-btn">&times;</span>
+            <div class="modal-corpo">
+                <img id="modal-imagem-destaque" src="" alt="Imagem de Destaque">
+                <h2 id="modal-titulo-destaque"></h2>
+                <p id="modal-descricao-detalhada"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CAMADA DE DADOS ---
+
+        // Objeto central com todas as traduções
+        const translations = {
+            pt: {
+                main_title: '<i class="fa-solid fa-tree-city"></i> Oraculum Belém',
+                main_subtitle: 'Seu guia interativo para a cidade-sede da COP 30',
+                tourist_points_title: 'Pontos Turísticos',
+                tourist_points_desc: 'Mergulhe na história e cultura de Belém. Descubra locais icônicos como o Mercado Ver-o-Peso, o majestoso Theatro da Paz e o oásis verde do Mangal das Garças. Use os QR Codes nos locais para acessar conteúdos exclusivos e curiosidades.',
+                cuisine_title: 'Culinária Regional',
+                cuisine_desc: 'A gastronomia paraense é um patrimônio de sabores. Desafie seu paladar com o famoso Tacacá, a complexa Maniçoba e o autêntico Açaí. Nosso guia de restaurantes indica os melhores locais, desde os mais tradicionais aos mais modernos, para você viver essa experiência.',
+                news_title: 'Notícias e Eventos',
+                news_desc: 'Fique por dentro de tudo que acontece em Belém. Acesse as últimas notícias sobre a COP 30, a agenda cultural completa da cidade, comunicados oficiais e informações sobre eventos paralelos e exposições.',
+                guide_title: 'Guia do Visitante',
+                guide_desc: 'Explore Belém com confiança e segurança. Utilize nossos mapas interativos, consulte as rotas de transporte sustentável criadas para o evento e receba dicas de segurança essenciais para aproveitar sua visita ao máximo.',
+                gamification_title: 'Desafio Sustentável',
+                gamification_desc: 'Faça parte da mudança! Participe do nosso jogo interativo de sustentabilidade. Cumpra desafios como separar o lixo corretamente e utilizar transporte público para acumular pontos. Troque seus pontos por recompensas e descontos em parceiros locais.',
+                hotels_title: 'Hotéis e Hospedagem',
+                hotels_desc: 'Encontre a acomodação perfeita para sua estadia. Explore uma seleção de hotéis, pousadas e espaços alternativos. Dê preferência aos locais com selo de práticas sustentáveis, contribuindo para um turismo mais consciente.'
+            },
+            en: {
+                main_title: '<i class="fa-solid fa-tree-city"></i> Oraculum Belém',
+                main_subtitle: 'Your interactive guide to the COP 30 host city',
+                tourist_points_title: 'Tourist Spots',
+                tourist_points_desc: 'Immerse yourself in the history and culture of Belém. Discover iconic places like the Ver-o-Peso Market, the majestic Theatro da Paz, and the green oasis of Mangal das Garças. Use the QR Codes at the locations to access exclusive content and fun facts.',
+                cuisine_title: 'Regional Cuisine',
+                cuisine_desc: 'Pará\'s cuisine is a heritage of flavors. Challenge your palate with the famous Tacacá, the complex Maniçoba, and the authentic Açaí. Our restaurant guide points to the best places, from the most traditional to the most modern, for you to live this experience.',
+                news_title: 'News and Events',
+                news_desc: 'Stay on top of everything happening in Belém. Access the latest news about COP 30, the city\'s complete cultural agenda, official announcements, and information on side events and exhibitions.',
+                guide_title: 'Visitor\'s Guide',
+                guide_desc: 'Explore Belém with confidence and safety. Use our interactive maps, check the sustainable transport routes created for the event, and get essential safety tips to make the most of your visit.',
+                gamification_title: 'Sustainable Challenge',
+                gamification_desc: 'Be part of the change! Participate in our interactive sustainability game. Complete challenges like correctly sorting waste and using public transport to earn points. Exchange your points for rewards and discounts at local partners.',
+                hotels_title: 'Hotels and Lodging',
+                hotels_desc: 'Find the perfect accommodation for your stay. Explore a selection of hotels, inns, and alternative spaces. Give preference to places with a sustainable practices seal, contributing to more conscious tourism.'
+            },
+            es: {
+                main_title: '<i class="fa-solid fa-tree-city"></i> Oraculum Belém',
+                main_subtitle: 'Tu guía interactiva para la ciudad anfitriona de la COP 30',
+                tourist_points_title: 'Puntos Turísticos',
+                tourist_points_desc: 'Sumérgete en la historia y cultura de Belém. Descubre lugares icónicos como el Mercado Ver-o-Peso, el majestuoso Theatro da Paz y el oasis verde de Mangal das Garças. Utiliza los códigos QR en los lugares para acceder a contenido exclusivo y curiosidades.',
+                cuisine_title: 'Cocina Regional',
+                cuisine_desc: 'La gastronomía de Pará es un patrimonio de sabores. Desafía tu paladar con el famoso Tacacá, la compleja Maniçoba y el auténtico Açaí. Nuestra guía de restaurantes te indica los mejores lugares, desde los más tradicionales hasta los más modernos, para que vivas esta experiencia.',
+                news_title: 'Noticias y Eventos',
+                news_desc: 'Mantente al tanto de todo lo que sucede en Belém. Accede a las últimas noticias sobre la COP 30, la agenda cultural completa de la ciudad, comunicados oficiales e información sobre eventos paralelos y exposiciones.',
+                guide_title: 'Guía del Visitante',
+                guide_desc: 'Explora Belém con confianza y seguridad. Utiliza nuestros mapas interactivos, consulta las rutas de transporte sostenible creadas para el evento y recibe consejos de seguridad esenciales para aprovechar al máximo tu visita.',
+                gamification_title: 'Reto Sostenible',
+                gamification_desc: '¡Sé parte del cambio! Participa en nuestro juego interactivo de sostenibilidad. Cumple desafíos como separar la basura correctamente y usar el transporte público para acumular puntos. Canjea tus puntos por recompensas y descuentos en socios locales.',
+                hotels_title: 'Hoteles y Alojamiento',
+                hotels_desc: 'Encuentra el alojamiento perfecto para tu estancia. Explora una selección de hoteles, posadas y espacios alternativos. Da preferencia a los lugares con sello de prácticas sostenibles, contribuyendo a un turismo más consciente.'
+            }
+        };
+
+        // Dados estruturais dos módulos (sem texto)
+        const dadosDosModulos = [
+            { id: 'pontos-turisticos', icone: 'fa-solid fa-landmark', imagemFundo: 'https://images.unsplash.com/photo-1616723224143-8e5835e07a3f?q=80&w=1932&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1599923880993-90f7a39d09c6?q=80&w=2070&auto=format&fit=crop', tituloKey: 'tourist_points_title', descricaoKey: 'tourist_points_desc' },
+            { id: 'culinaria-regional', icone: 'fa-solid fa-shrimp', imagemFundo: 'https://images.unsplash.com/photo-1628088204279-d4808d43f012?q=80&w=2070&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1552529759-61bab6909e73?q=80&w=1935&auto=format&fit=crop', tituloKey: 'cuisine_title', descricaoKey: 'cuisine_desc' },
+            { id: 'noticias-eventos', icone: 'fa-solid fa-bullhorn', imagemFundo: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop', tituloKey: 'news_title', descricaoKey: 'news_desc' },
+            { id: 'guia-turista', icone: 'fa-solid fa-person-walking-luggage', imagemFundo: 'https://images.unsplash.com/photo-1569335491122-d78465bce590?q=80&w=2070&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop', tituloKey: 'guide_title', descricaoKey: 'guide_desc' },
+            { id: 'gamificacao-sustentavel', icone: 'fa-solid fa-award', imagemFundo: 'https://images.unsplash.com/photo-1611270418597-a6c77f4b7271?q=80&w=1954&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1542601906-823816a39a75?q=80&w=2070&auto=format&fit=crop', tituloKey: 'gamification_title', descricaoKey: 'gamification_desc' },
+            { id: 'hoteis-hospedagem', icone: 'fa-solid fa-bed', imagemFundo: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop', imagemModal: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop', tituloKey: 'hotels_title', descricaoKey: 'hotels_desc' }
+        ];
+
+        // --- CAMADA DE APRESENTAÇÃO E CONTROLE ---
+        
+        let currentLang = 'pt'; // Define o idioma padrão
+
+        // Seleciona os elementos principais do DOM
+        const containerModulos = document.querySelector('.container-modulos');
+        const modalContainer = document.getElementById('modal-container');
+        const modalFecharBtn = document.getElementById('modal-fechar-btn');
+        const modalImagem = document.getElementById('modal-imagem-destaque');
+        const modalTitulo = document.getElementById('modal-titulo-destaque');
+        const modalDescricao = document.getElementById('modal-descricao-detalhada');
+        const languageButtons = document.querySelectorAll('.btn-idioma');
+
+        // Função que atualiza todos os textos da página com base no idioma selecionado
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang; // Atualiza o atributo lang do HTML
+
+            // Atualiza textos com data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Atualiza a classe 'ativo' nos botões
+            languageButtons.forEach(button => {
+                button.classList.toggle('ativo', button.dataset.lang === lang);
+            });
+
+            renderizarCards(); // Re-renderiza os cards com os novos títulos
+        }
+
+        // Função que cria os cards na tela principal
+        function renderizarCards() {
+            containerModulos.innerHTML = ''; 
+            dadosDosModulos.forEach(modulo => {
+                const card = document.createElement('div');
+                card.className = 'card-modulo';
+                card.dataset.id = modulo.id; 
+                card.style.backgroundImage = `url(${modulo.imagemFundo})`;
+
+                card.innerHTML = `
+                    <div class="card-conteudo">
+                        <i class="icone ${modulo.icone}"></i>
+                        <h3>${translations[currentLang][modulo.tituloKey]}</h3>
+                    </div>
+                `;
+                containerModulos.appendChild(card);
+            });
+        }
+
+        // Função que abre o modal com as informações traduzidas
+        function abrirModal(id) {
+            const modulo = dadosDosModulos.find(d => d.id === id);
+            if (modulo) {
+                modalImagem.src = modulo.imagemModal;
+                modalImagem.alt = translations[currentLang][modulo.tituloKey];
+                modalTitulo.textContent = translations[currentLang][modulo.tituloKey];
+                modalDescricao.textContent = translations[currentLang][modulo.descricaoKey];
+                modalContainer.classList.add('visivel');
+            }
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            modalContainer.classList.remove('visivel');
+        }
+
+        // --- EVENTOS ---
+
+        // Evento de clique nos botões de idioma
+        languageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setLanguage(button.dataset.lang);
+            });
+        });
+
+        containerModulos.addEventListener('click', (event) => {
+            const cardClicado = event.target.closest('.card-modulo');
+            if (cardClicado) {
+                abrirModal(cardClicado.dataset.id);
+            }
+        });
+
+        modalFecharBtn.addEventListener('click', fecharModal);
+
+        modalContainer.addEventListener('click', (event) => {
+            if (event.target === modalContainer) {
+                fecharModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modalContainer.classList.contains('visivel')) {
+                fecharModal();
+            }
+        });
+
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang); // Define o idioma inicial e renderiza a página
+        });
+
+    </script>
+</body>
+</html>

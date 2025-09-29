@@ -1,0 +1,433 @@
+{
+  "pontos_turisticos": [
+    {
+      "nome": "Mercado Ver-o-Peso",
+      "categoria": "mercado",
+      "descricao": "O maior mercado ao ar livre da América Latina. Uma experiência sensorial única com frutas, ervas, peixes e artesanato da Amazônia.",
+      "endereco": "Av. Blvd. Castilhos França, s/n - Campina, Belém - PA, 66013-030",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Mercado+Ver-o-Peso+Belém",
+      "preco": "Visitação gratuita",
+      "horario": "Segunda a Sábado: 5h às 18h",
+      "website": "https://www.belem.pa.gov.br",
+      "telefone": "(91) 3184-8200",
+      "tags": ["popular", "barato", "exótico", "gastronomia", "cultural", "compras", "autêntico"],
+      "dicas": "Ideal para visitar pela manhã para ver o movimento dos barcos. Tenha atenção com seus pertences. Experimente o açaí com peixe frito nos boxes de alimentação."
+    },
+    {
+      "nome": "Estação das Docas",
+      "categoria": "lazer_e_gastronomia",
+      "descricao": "Complexo turístico, gastronômico e cultural em antigos galpões portuários de ferro inglês, com vista para a Baía do Guajará.",
+      "endereco": "Av. Blvd. Castilhos França, s/n - Campina, Belém - PA, 66010-020",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Estação+das+Docas+Belém",
+      "preco": "Entrada gratuita, consumação nos estabelecimentos varia.",
+      "horario": "Seg-Qua: 10h-00h, Qui-Sáb: 10h-01h, Dom: 9h-00h",
+      "website": "https://estacaodasdocas.com.br",
+      "telefone": "(91) 3212-5525",
+      "tags": ["turismo", "gastronomia", "pordosol", "familiar", "seguro", "cultural", "noturno"],
+      "dicas": "O pôr do sol é espetacular. Ótimo local para um passeio noturno seguro. Possui cinema e teatro."
+    },
+    {
+      "nome": "Theatro da Paz",
+      "categoria": "cultura_e_historia",
+      "descricao": "Teatro-monumento em estilo neoclássico, inspirado no Teatro alla Scala de Milão. Símbolo do Ciclo da Borracha.",
+      "endereco": "R. da Paz, S/N - Campina, Belém - PA, 66017-210",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Theatro+da+Paz+Belém",
+      "preco": "Visitas guiadas pagas (consultar valor). Espetáculos com preços variados.",
+      "horario": "Visitas de Terça a Sexta, 9h-17h. Sábados, 9h-14h. Domingos, 9h-12h.",
+      "website": "https://theatrodapaz.com.br",
+      "telefone": "(91) 4009-8750",
+      "tags": ["histórico", "cultural", "arquitetura", "sofisticado", "arte"],
+      "dicas": "Faça a visita guiada para conhecer os detalhes da arquitetura e história. Consulte a programação de espetáculos com antecedência."
+    },
+    {
+      "nome": "Mangal das Garças",
+      "categoria": "natureza_e_ecoturismo",
+      "descricao": "Parque ecológico que representa um pedaço da Amazônia no centro da cidade, com borboletário, viveiro de aves e vista panorâmica.",
+      "endereco": "Pass. Carneiro da Rocha, s/n - Cidade Velha, Belém - PA, 66020-160",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Mangal+das+Garças+Belém",
+      "preco": "Acesso ao parque gratuito. Atrações como Farol e Borboletário são pagas.",
+      "horario": "Terça a Domingo: 8h às 18h",
+      "website": "https://mangal.pa.gov.br",
+      "telefone": "(91) 3242-5052",
+      "tags": ["natureza", "ecoturismo", "familiar", "tranquilo", "vista"],
+      "dicas": "Suba no Farol de Belém para ter uma vista 360º da cidade. O restaurante Manjar das Garças, no local, é uma excelente opção para almoço."
+    },
+    {
+      "nome": "Basílica Santuário de Nazaré",
+      "categoria": "religioso_e_cultural",
+      "descricao": "Uma das mais belas igrejas do Brasil, em estilo neoclássico e palco da maior festa religiosa do país, o Círio de Nazaré.",
+      "endereco": "Av. Nazaré, 1300 - Nazaré, Belém - PA, 66035-145",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Basílica+Santuário+de+Nazaré+Belém",
+      "preco": "Acesso gratuito",
+      "horario": "Diariamente, 6h às 20h (horários de missa variam)",
+      "website": "https://basilicadenazare.com.br",
+      "telefone": "(91) 4009-8400",
+      "tags": ["religioso", "histórico", "arquitetura", "cultural", "gratuito"],
+      "dicas": "Observe os vitrais e mosaicos que contam a história do Círio. Mesmo para não religiosos, a arquitetura é um espetáculo."
+    },
+    {
+      "nome": "Museu Paraense Emílio Goeldi",
+      "categoria": "ciencia_e_natureza",
+      "descricao": "Parque zoobotânico e de pesquisa, referência nos estudos da fauna, flora e culturas da Amazônia.",
+      "endereco": "Av. Magalhães Barata, 376 - São Brás, Belém - PA, 66040-170",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Museu+Paraense+Emílio+Goeldi+Belém",
+      "preco": "Ingresso pago (valor acessível)",
+      "horario": "Quarta a Domingo: 9h às 14h",
+      "website": "https://www.museu-goeldi.br",
+      "telefone": "(91) 3182-3200",
+      "tags": ["natureza", "ciência", "educativo", "familiar", "museu"],
+      "dicas": "Reserve pelo menos 3 horas para explorar o parque com calma. Ótimo programa para crianças."
+    },
+    {
+      "nome": "Forte do Presépio",
+      "categoria": "historia_e_cultura",
+      "descricao": "Marco da fundação de Belém, localizado no complexo Feliz Lusitânia. Oferece vista privilegiada da Baía do Guajará e do Ver-o-Peso.",
+      "endereco": "Praça Frei Caetano Brandão, s/n - Cidade Velha, Belém - PA, 66020-310",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Forte+do+Presépio+Belém",
+      "preco": "Ingresso pago (valor acessível)",
+      "horario": "Terça a Domingo: 9h às 17h",
+      "website": "N/A",
+      "telefone": "(91) 4009-8828",
+      "tags": ["histórico", "turismo", "cultural", "vista", "museu"],
+      "dicas": "Combine a visita com os outros museus do Complexo Feliz Lusitânia, como a Casa das Onze Janelas."
+    },
+    {
+      "nome": "Casa das Onze Janelas",
+      "categoria": "arte_e_cultura",
+      "descricao": "Antigo hospital militar do século XVIII, hoje um espaço de arte contemporânea com um belo jardim com vista para o rio.",
+      "endereco": "Praça Frei Caetano Brandão, s/n - Cidade Velha, Belém - PA, 66020-310",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Casa+das+Onze+Janelas+Belém",
+      "preco": "Ingresso pago (valor acessível)",
+      "horario": "Terça a Domingo: 10h às 16h",
+      "website": "N/A",
+      "telefone": "(91) 4009-8823",
+      "tags": ["arte", "cultural", "museu", "histórico", "vista", "gastronomia"],
+      "dicas": "Após a visita ao museu, aproveite para tomar algo no restaurante Boteco das Onze, no jardim."
+    },
+    {
+      "nome": "Ilha do Combu",
+      "categoria": "natureza_e_gastronomia",
+      "descricao": "Ilha em frente a Belém, acessível por barco. Famosa pelos restaurantes ribeirinhos e produção de cacau e açaí.",
+      "endereco": "Travessia de barco a partir da Praça Princesa Isabel, Condor.",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Ilha+do+Combu",
+      "preco": "Travessia de barco paga (valor acessível). Restaurantes com preço moderado a caro.",
+      "horario": "Restaurantes funcionam principalmente durante o dia, especialmente nos fins de semana.",
+      "website": "N/A",
+      "telefone": "N/A",
+      "tags": ["natureza", "passeio", "gastronomia", "regional", "rústico", "exótico", "rio"],
+      "dicas": "Visite o restaurante 'Saldosa Maloca' e experimente os chocolates artesanais da 'Filha do Combu'."
+    },
+    {
+      "nome": "Bosque Rodrigues Alves",
+      "categoria": "natureza_e_ecoturismo",
+      "descricao": "Um pedaço preservado da Floresta Amazônica no coração de Belém. Um oásis de tranquilidade com mais de 100 anos de história.",
+      "endereco": "Av. Almirante Barroso, 2603 - Marco, Belém - PA, 66093-020",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Bosque+Rodrigues+Alves+Belém",
+      "preco": "Ingresso pago (valor simbólico)",
+      "horario": "Terça a Domingo: 8h às 17h",
+      "website": "https://www.belem.pa.gov.br/semma/",
+      "telefone": "(91) 3277-1659",
+      "tags": ["natureza", "ecoturismo", "histórico", "barato", "familiar", "tranquilo"],
+      "dicas": "Ideal para uma caminhada pela manhã. Não deixe de ver o peixe-boi no aquário."
+    },
+    {
+      "nome": "Parque da Residência",
+      "categoria": "cultura_e_lazer",
+      "descricao": "Antiga residência de governadores, hoje um espaço cultural com jardins, orquidário, teatro e vagões de trem da época da ferrovia Belém-Bragança.",
+      "endereco": "Av. Gov Magalhães Barata, 830 - São Brás, Belém - PA, 66063-240",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Parque+da+Residência+Belém",
+      "preco": "Acesso gratuito",
+      "horario": "Terça a Domingo: 9h às 19h",
+      "website": "https://www.secult.pa.gov.br",
+      "telefone": "(91) 4009-8750",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico", "teatro"],
+      "dicas": "Lugar perfeito para um café da tarde e para apreciar o orquidário. Verifique a programação do teatro."
+    }
+  ],
+  "restaurantes": [
+    {
+      "nome": "Remanso do Bosque",
+      "categoria": "alta_gastronomia",
+      "especialidade": "Culinária amazônica contemporânea",
+      "endereco": "Av. Rômulo Maiorana, 2350 - Marco, Belém - PA, 66093-675",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Remanso+do+Bosque+Belém",
+      "preco_medio": "R$ 200,00 - R$ 400,00 por pessoa",
+      "horario": "Terça a Sábado: 19h às 23h",
+      "website": "https://www.instagram.com/remansodobosque",
+      "telefone": "(91) 3347-2829",
+      "pratos_famosos": ["Menu degustação", "Pirarucu defumado"],
+      "tags": ["sofisticado", "caro", "contemporâneo", "regional", "premiado"],
+      "dicas": "Reserva obrigatória com muita antecedência. Experiência gastronômica única dos chefs Thiago e Felipe Castanho."
+    },
+    {
+      "nome": "Point do Açaí",
+      "categoria": "tradicional",
+      "especialidade": "Açaí paraense e pratos regionais",
+      "endereco": "Av. Blvd. Castilhos França, 744 - Campina, Belém - PA, 66013-030",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Point+do+Açaí+Boulevard",
+      "preco_medio": "R$ 40,00 - R$ 90,00 por pessoa",
+      "horario": "Diariamente: 11h às 23h",
+      "website": "https://www.pointdoacai.com",
+      "telefone": "(91) 3225-4628",
+      "pratos_famosos": ["Açaí com peixe frito", "Açaí com charque", "Unha de caranguejo"],
+      "tags": ["tradicional", "regional", "popular", "casual", "moderado"],
+      "dicas": "Peça o açaí 'de verdade' (sem açúcar, para refeição). A unidade do Umarizal é mais ampla e climatizada."
+    },
+    {
+      "nome": "Manjar das Garças",
+      "categoria": "sofisticado",
+      "especialidade": "Buffet regional e internacional",
+      "endereco": "Dentro do Mangal das Garças - Cidade Velha, Belém - PA",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Manjar+das+Garças+Belém",
+      "preco_medio": "R$ 100,00 - R$ 200,00 por pessoa",
+      "horario": "Terça a Domingo: 12h às 16h (Almoço)",
+      "website": "N/A",
+      "telefone": "(91) 3242-1056",
+      "pratos_famosos": ["Buffet variado de almoço"],
+      "tags": ["sofisticado", "vista", "caro", "regional", "buffet"],
+      "dicas": "Ideal para um almoço especial com uma das vistas mais bonitas da cidade."
+    },
+    {
+      "nome": "Sorveteria Cairu",
+      "categoria": "sorveteria",
+      "especialidade": "Sorvetes de frutas exóticas da Amazônia",
+      "endereco": "Travessa 14 de Março, 1570 - Umarizal, Belém - PA, 66055-490 (e várias outras unidades)",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Sorveteria+Cairu+Umarizal",
+      "preco_medio": "R$ 10,00 - R$ 30,00",
+      "horario": "Diariamente: 10h às 23h",
+      "website": "https://www.sorvetescairu.com.br",
+      "telefone": "(91) 3222-3837",
+      "pratos_famosos": ["Sorvete de Açaí", "Castanha-do-Pará", "Cupuaçu", "Tapioca", "Uxi", "Bacuri"],
+      "tags": ["sorvete", "regional", "exótico", "popular", "barato", "imperdível", "sobremesa"],
+      "dicas": "Imperdível! Peça para provar os sabores antes de escolher. O de tapioca com açaí é uma combinação clássica."
+    },
+    {
+      "nome": "Cervejaria Amazon Beer",
+      "categoria": "bar_restaurante",
+      "especialidade": "Cervejas artesanais com ingredientes amazônicos",
+      "endereco": "Estação das Docas, Galpão 1 - Campina, Belém - PA",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Cervejaria+Amazon+Beer+Estação+das+Docas",
+      "preco_medio": "R$ 60,00 - R$ 120,00 por pessoa",
+      "horario": "Seg-Qua: 17h-00h, Qui-Sáb: 12h-01h, Dom: 12h-00h",
+      "website": "http://www.amazonbeer.com.br/",
+      "telefone": "(91) 3212-5401",
+      "pratos_famosos": ["Cervejas de Açaí, Cacau, Taperebá", "Isca de filhote", "Pizza"],
+      "tags": ["cervejaartesanal", "regional", "noturno", "descontraído", "moderado"],
+      "dicas": "Ótimo lugar para o happy hour na Estação das Docas, com música ao vivo nos finais de semana."
+    },
+    {
+      "nome": "Lá em Casa",
+      "categoria": "tradicional",
+      "especialidade": "Cozinha paraense clássica",
+      "endereco": "Estação das Docas, Galpão 2 - Campina, Belém - PA",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Lá+em+Casa+Estação+das+Docas",
+      "preco_medio": "R$ 80,00 - R$ 150,00 por pessoa",
+      "horario": "Diariamente: 12h às 00h",
+      "website": "N/A",
+      "telefone": "(91) 3212-5525",
+      "pratos_famosos": ["Pato no Tucupi", "Maniçoba", "Casquinha de Caranguejo"],
+      "tags": ["gastronomia", "tradicional", "regional", "histórico", "clássico"],
+      "dicas": "Um dos restaurantes mais tradicionais da cidade, fundado pela chef Anna Maria Martins. Essencial para provar os clássicos da culinária paraense."
+    },
+    {
+      "nome": "Boteco das Onze",
+      "categoria": "bar_restaurante",
+      "especialidade": "Petiscos e pratos regionais com vista",
+      "endereco": "Dentro da Casa das Onze Janelas - Cidade Velha, Belém - PA",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Boteco+das+Onze+Belém",
+      "preco_medio": "R$ 70,00 - R$ 140,00 por pessoa",
+      "horario": "Terça a Domingo: 12h às 00h",
+      "website": "https://www.instagram.com/botecodasonze",
+      "telefone": "(91) 3224-8599",
+      "pratos_famosos": ["Bolinho de pato", "Isca de peixe", "Caipirinhas de frutas regionais"],
+      "tags": ["vista", "regional", "descontraído", "noturno", "moderado"],
+      "dicas": "O ambiente no jardim da Casa das Onze Janelas com vista para o rio é o grande charme do local. Perfeito para o fim de tarde."
+    }
+  ],
+  "hoteis": [
+    {
+      "nome": "Hotel Atrium Quinta de Pedras",
+      "categoria": "5_estrelas_boutique",
+      "endereco": "R. Dr. Assis, 834 - Cidade Velha, Belém - PA, 66020-290",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Hotel+Atrium+Quinta+de+Pedras",
+      "preco_diaria": "A partir de R$ 500,00 (varia muito)",
+      "website": "https://www.atriumquintadepedras.com.br",
+      "telefone": "(91) 3182-9000",
+      "comodidades": ["Wi-Fi", "Piscina", "Restaurante", "Spa", "Academia", "Arquitetura histórica"],
+      "tags": ["caro", "sofisticado", "design", "histórico", "luxo"],
+      "dicas": "Localizado no centro histórico, ideal para uma experiência de luxo e imersão cultural."
+    },
+    {
+      "nome": "Radisson Hotel Maiorana Belém",
+      "categoria": "5_estrelas",
+      "endereco": "Av. Comandante Brás de Aguiar, 321 - Nazaré, Belém - PA, 66035-395",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Radisson+Hotel+Maiorana+Belém",
+      "preco_diaria": "A partir de R$ 400,00 (varia muito)",
+      "website": "https://www.radissonhotelsamericas.com/pt-br/hoteis/radisson-belem",
+      "telefone": "(91) 3205-1399",
+      "comodidades": ["Wi-Fi", "Piscina na cobertura", "Academia", "Restaurante", "Business Center"],
+      "tags": ["caro", "superior", "negócios", "confortável"],
+      "dicas": "Excelente localização no bairro de Nazaré, perto de restaurantes e lojas. Vista da piscina é um diferencial."
+    },
+    {
+      "nome": "Mercure Belém Boulevard",
+      "categoria": "4_estrelas",
+      "endereco": "Av. Senador Lemos, 292 - Umarizal, Belém - PA, 66050-000",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Mercure+Belém+Boulevard",
+      "preco_diaria": "A partir de R$ 250,00 (varia muito)",
+      "website": "https://all.accor.com",
+      "telefone": "(91) 3202-5500",
+      "comodidades": ["Wi-Fi", "Piscina", "Academia", "Restaurante"],
+      "tags": ["moderado", "negócios", "confortável", "confiável"],
+      "dicas": "Padrão Accor confiável, com boa estrutura e localização estratégica entre o centro e bairros nobres."
+    },
+    {
+      "nome": "Ibis Styles Belém Nazaré",
+      "categoria": "3_estrelas",
+      "endereco": "Av. Nazaré, 861 - Nazaré, Belém - PA, 66040-142",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Ibis+Styles+Belém+Nazaré",
+      "preco_diaria": "A partir de R$ 180,00 (varia muito)",
+      "website": "https://all.accor.com",
+      "telefone": "(91) 3321-8900",
+      "comodidades": ["Wi-Fi", "Academia", "Café da manhã incluso", "Design temático"],
+      "tags": ["moderado", "econômico", "design"],
+      "dicas": "Ótimo custo-benefício. O design do hotel é inspirado na cultura local, tornando a estadia mais interessante."
+    },
+    {
+      "nome": "Hotel Grão Pará",
+      "categoria": "2_estrelas",
+      "endereco": "Av. Pres. Vargas, 718 - Campina, Belém - PA, 66017-000",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Hotel+Grão+Pará+Belém",
+      "preco_diaria": "A partir de R$ 120,00 (varia muito)",
+      "website": "N/A",
+      "telefone": "(91) 3321-2121",
+      "comodidades": ["Wi-Fi", "Café da manhã", "Localização central"],
+      "tags": ["econômico", "barato", "central", "simples"],
+      "dicas": "Opção econômica com localização excelente no centro da cidade, próximo a lojas e pontos turísticos."
+    }
+  ],
+  "compras": [
+    {
+      "nome": "Boulevard Shopping Belém",
+      "categoria": "shopping_center",
+      "descricao": "O principal e mais moderno shopping da cidade, com grande variedade de lojas, praça de alimentação, cinemas e lazer.",
+      "endereco": "Av. Visc. de Souza Franco, 776 - Reduto, Belém - PA, 66053-000",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Boulevard+Shopping+Belém",
+      "horario": "Segunda a Sábado: 10h às 22h; Domingo: 13h às 21h",
+      "website": "https://boulevardbelem.com.br",
+      "tags": ["compras", "moderno", "seguro", "familiar", "lazer", "cinema"],
+      "dicas": "Possui lojas de grandes marcas nacionais e internacionais. A praça de alimentação no último piso tem boas opções com vista."
+    },
+    {
+      "nome": "Shopping Pátio Belém",
+      "categoria": "shopping_center",
+      "descricao": "Shopping tradicional e muito frequentado, com boa variedade de lojas populares, serviços e cinema.",
+      "endereco": "Tv. Padre Eutíquio, 1078 - Batista Campos, Belém - PA, 66023-710",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Shopping+Pátio+Belém",
+      "horario": "Segunda a Sábado: 10h às 22h; Domingo: 14h às 22h",
+      "website": "https://www.patiobelem.com.br",
+      "tags": ["compras", "popular", "central", "familiar", "serviços"],
+      "dicas": "Localizado próximo ao bairro de Batista Campos, é uma opção conveniente para compras e serviços."
+    },
+    {
+      "nome": "Orla de Icoaraci",
+      "categoria": "artesanato",
+      "descricao": "Polo de produção e venda da autêntica cerâmica marajoara e tapajônica, localizado no distrito de Icoaraci.",
+      "endereco": "R. Siqueira Mendes - Cruzeiro (Icoaraci), Belém - PA",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Orla+de+Icoaraci+Belém",
+      "horario": "Lojas abrem em horário comercial, mais movimentado nos fins de semana.",
+      "website": "N/A",
+      "tags": ["artesanato", "cultural", "regional", "compras", "passeio"],
+      "dicas": "É o melhor lugar para comprar cerâmica diretamente dos artesãos. A viagem até lá (cerca de 20km do centro) é um passeio interessante."
+    }
+  ],
+  "transporte": [
+    {
+      "tipo": "Aplicativos (Uber/99)",
+      "descricao": "Principal meio de transporte para turistas na cidade.",
+      "preco": "Varia conforme demanda, distância e categoria do carro.",
+      "cobertura": "Ampla cobertura na área metropolitana.",
+      "website": "N/A",
+      "dicas": "Geralmente mais econômico e seguro que táxis. Verifique a placa e o nome do motorista antes de embarcar."
+    },
+    {
+      "tipo": "Táxi",
+      "descricao": "Táxis convencionais e de cooperativas.",
+      "preco": "Bandeirada inicial + valor por km rodado. Mais caro que apps.",
+      "cobertura": "Ampla, com pontos em locais estratégicos como aeroporto e rodoviária.",
+      "telefone": "(91) 3241-3434",
+      "dicas": "Prefira táxis de cooperativas ou chamados por aplicativos de táxi para maior segurança."
+    },
+    {
+      "tipo": "Ônibus Coletivo",
+      "descricao": "Sistema de transporte público da cidade.",
+      "preco": "Tarifa única (consultar valor vigente).",
+      "cobertura": "Extensa, mas pode ser complexo para turistas.",
+      "website": "https://semob.belem.pa.gov.br/",
+      "dicas": "Recomendado para viajantes com mais experiência e orçamento limitado. Evite horários de pico."
+    },
+    {
+      "tipo": "Aeroporto para Centro",
+      "descricao": "Do Aeroporto Val-de-Cães para o centro de Belém",
+      "opcoes": {
+        "taxi": "R$ 40,00 - R$ 60,00 (25 min)",
+        "uber": "R$ 25,00 - R$ 45,00 (25 min)",
+        "onibus": "R$ 4,50 (45 min)"
+      },
+      "dicas": "Uber é mais econômico, táxi mais rápido no trânsito"
+    }
+  ],
+  "cop30": [
+    {
+      "titulo": "COP 30 em Belém - Conferência do Clima da ONU",
+      "descricao": "A 30ª Conferência das Nações Unidas sobre Mudanças Climáticas, o mais importante evento global sobre o clima, será sediado em Belém.",
+      "data": "Novembro de 2025",
+      "local_principal": "Hangar Centro de Convenções & Feiras da Amazônia",
+      "google_maps_link_local": "https://www.google.com/maps/search/?api=1&query=Hangar+Centro+de+Convenções+Belém",
+      "impacto_esperado": "Grande fluxo de visitantes internacionais, aumento da demanda por serviços, melhorias na infraestrutura urbana e foco global na Amazônia.",
+      "preparativos_em_curso": [
+        "Modernização do Aeroporto Internacional de Belém",
+        "Ampliação da rede hoteleira",
+        "Obras de mobilidade urbana, incluindo o BRT",
+        "Revitalização de áreas turísticas como o Ver-o-Peso e o centro histórico"
+      ],
+      "dicas_para_visitantes": "Devido à alta demanda esperada, é crucial reservar voos e hospedagem com mais de um ano de antecedência. Os preços de todos os serviços na cidade estarão significativamente mais altos durante o período do evento."
+    }
+  ],
+  "seguranca": [
+    {
+      "dica": "Atenção em Áreas Movimentadas",
+      "detalhes": "Em locais como o Mercado Ver-o-Peso, Feira do Açaí e no centro comercial, mantenha bolsas e mochilas à frente do corpo e não exiba objetos de valor como celulares e joias."
+    },
+    {
+      "dica": "Transporte Noturno",
+      "detalhes": "À noite, dê preferência ao uso de transporte por aplicativo ou táxis de confiança em vez de caminhar longas distâncias, mesmo em áreas consideradas seguras."
+    },
+    {
+      "dica": "Áreas para Evitar à Noite",
+      "detalhes": "Regiões periféricas e áreas pouco iluminadas do centro da cidade devem ser evitadas por turistas durante a noite."
+    },
+    {
+      "telefones_de_emergencia": {
+        "policia_militar": "190",
+        "bombeiros": "193",
+        "samu_emergencia_medica": "192",
+        "delegacia_de_atendimento_ao_turista": "(91) 3212-2410"
+      }
+    }
+  ],
+  "clima": [
+    {
+      "periodo": "Verão Amazônico (menos chuvoso)",
+      "meses": "Junho a Novembro",
+      "caracteristicas": "Temperaturas elevadas (24°C a 33°C) com chuvas rápidas e passageiras, geralmente no final da tarde. Sol predominante.",
+      "dicas_vestuario": "Roupas leves, protetor solar, chapéu, óculos de sol e muita hidratação."
+    },
+    {
+      "periodo": "Inverno Amazônico (mais chuvoso)",
+      "meses": "Dezembro a Maio",
+      "caracteristicas": "Temperaturas amenas (23°C a 31°C) com umidade alta e chuvas mais frequentes e intensas.",
+      "dicas_vestuario": "Leve sempre um guarda-chuva ou capa de chuva. Roupas que secam rápido são uma boa opção. Calçados antiderrapantes."
+    }
+  ]
+}

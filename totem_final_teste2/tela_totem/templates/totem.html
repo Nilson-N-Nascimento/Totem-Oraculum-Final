@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oraculum Interativo - Belém COP 30</title>
+    
+    <!-- Preload de fontes críticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Font Awesome com carregamento otimizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    
+    <!-- CSS principal com preload -->
+    <link rel="preload" href="static/css/styles.css" as="style">
+    <link rel="stylesheet" href="static/css/styles.css">
+    
+    <!-- Meta tags para cache e performance -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <meta name="description" content="Oraculum Interativo - Belém COP 30">
+    <meta name="theme-color" content="#0a1a1f">
+</head>
+<body>
+    <div class="tela-totem">
+        <header class="header-principal">
+            <div class="seletor-idioma">
+                <button class="btn-idioma ativo" data-lang="pt">PT</button>
+                <button class="btn-idioma" data-lang="en">EN</button>
+                <button class="btn-idioma" data-lang="es">ES</button>
+            </div>
+            <div class="titulo-principal">
+                <h1><i class="fa-solid fa-tree-city"></i> <span class="translatable">Oraculum Belém</span></h1>
+                <p class="translatable">Seu guia interativo para a cidade-sede da COP 30</p>
+            </div>
+            <div style="width: 150px;"></div> 
+        </header>
+        <main class="container-modulos"></main>
+    </div>
+
+    <div class="modal-container" id="modal-container">
+        <div class="modal-dialogo">
+            <span class="modal-fechar" id="modal-fechar-btn">&times;</span>
+            <div class="modal-corpo">
+                <img id="modal-imagem-destaque" src="" alt="Imagem de Destaque">
+                <h2 id="modal-titulo-destaque" class="translatable"></h2>
+                <p id="modal-descricao-detalhada" class="translatable"></p>
+                <canvas id="gameCanvas" style="display: none; margin: 20px auto; background-color: var(--cor-fundo); border: 2px solid var(--cor-primaria); border-radius: 10px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-indicator" id="loading-indicator">
+        <i class="fa-solid fa-spinner fa-spin"></i> Traduzindo...
+    </div>
+
+    <!-- Link para os arquivos JavaScript -->
+    <script src="static/js/config.js"></script>
+    <script src="static/js/eco-runner.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>

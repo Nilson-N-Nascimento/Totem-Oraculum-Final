@@ -142,6 +142,32 @@
       "telefone": "(91) 4009-8750",
       "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico", "teatro"],
       "dicas": "Lugar perfeito para um café da tarde e para apreciar o orquidário. Verifique a programação do teatro."
+    },
+    {
+      "nome": "",
+      "categoria":"",
+      "descricao":"",
+      "endereco":"",
+      "google_maps_link":"",
+      "preco":"",
+      "horario": "",
+      "website": "",
+      "telefone": "",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico", "teatro"],
+      "dicas": ""
+    },
+    {
+      "nome": "Bosque Rodrigues Alves",
+      "categoria":"cultura_e_lazer",
+      "descricao":"Jardim botânico",
+      "endereco":"Av. Alm. Barroso, 2305 - Marco, Belém - PA, 66093-034",
+      "google_maps_link":"https://meioambiente.belem.pa.gov.br/bosque/",
+      "preco":"R$ 2,00 (inteira) e R$1,00 (meia)",
+      "horario": "Quinta-feira a Domingo: 8h às 16h",
+      "website": "https://meioambiente.belem.pa.gov.br/areas-especiais-e-protegidas/bosque-rodrigues-alves/",
+      "telefone": "+559132771112",
+      "tags": ["cultural", "lazer", "tranquilo", "histórico", "natureza"],
+      "dicas": "Não venha enquanto chove, risco de cobra"
     }
   ],
   "restaurantes": [

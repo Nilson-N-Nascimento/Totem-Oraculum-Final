@@ -144,6 +144,7 @@
       "dicas": "Lugar perfeito para um café da tarde e para apreciar o orquidário. Verifique a programação do teatro."
     },
     {
+      
       "nome": "",
       "categoria":"",
       "descricao":"",
@@ -168,8 +169,79 @@
       "telefone": "+559132771112",
       "tags": ["cultural", "lazer", "tranquilo", "histórico", "natureza"],
       "dicas": "Não venha enquanto chove, risco de cobra"
+    },
+    {
+      "nome": "Praça Milton Trindade (Horto Municipal)",
+      "categoria":"cultura_e_lazer",
+      "descricao":"Praça",
+      "endereco":"R. dos Mundurucus, s/n - Batista Campos, Belém - PA, 66035-360",
+      "google_maps_link":"https://www.google.com/maps/place/Pra%C3%A7a+Milton+Trindade+(Horto+Municipal)/@-1.4582755,-48.4921074,17z/data=!3m1!4b1!4m6!3m5!1s0x92a48e87b769ee19:0xffab6cb3ed0a81e8!8m2!3d-1.4582755!4d-48.4872418!16s%2Fg%2F1pyqr117y?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
+      "preco":"Acesso gratuito",
+      "horario": "Terça a Domingo: 8h às 18h",
+      "website": "N/A",
+      "telefone": "N/A",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico"],
+      "dicas": "N/A"
+    },
+    { 
+     
+      "nome": "Basílica Santuário de Nossa Senhora de Nazaré",
+      "categoria":"religioso_e_cultural",
+      "descricao":"Templo Religioso",
+      "endereco":"Av. Nª Sra. de Nazaré, 1300 - Nazaré, Belém - PA, 66035-145",
+      "google_maps_link":"https://www.google.com/maps/place/Bas%C3%ADlica+Santu%C3%A1rio+de+Nossa+Senhora+de+Nazar%C3%A9/@-1.4527119,-48.4837614,17z/data=!3m1!4b1!4m6!3m5!1s0x92a48e82d71b8c61:0x69dc0fa33e57e20c!8m2!3d-1.4527119!4d-48.4811811!16s%2Fg%2F1236mz9n?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
+      "preco":"Acesso gratuito",
+      "horario": "Segunda a Sexta: 9h às 13h e 14h às 18h; Sabado: 8h às 12h",
+      "website": "https://www.basilicadenazare.com.br/",
+      "telefone": "09140098400",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico", "religioso"],
+      "dicas": "N/A"
+    },
+    {
+      
+      "nome": "Catedral Metropolitana de Belém Nossa Senhora da Graça",
+      "categoria":"religioso_e_cultural",
+      "descricao":"Igreja católica do século XVIII com interior impressionante cheio de afrescos requintados.",
+      "endereco":"Praça Dom Frei Caetano Brandão - Cidade Velha, Belém - PA, 66020-310",
+      "google_maps_link":"https://www.google.com/maps/place/Catedral+Metropolitana+de+Bel%C3%A9m+Nossa+Senhora+da+Gra%C3%A7a/@-1.4555224,-48.505945,18.17z/data=!4m14!1m7!3m6!1s0x92a48ef1a132f8d5:0xff1a071f7388a0ed!2sForte+do+Pres%C3%A9pio!8m2!3d-1.4543647!4d-48.5052375!16s%2Fg%2F122zd8n3!3m5!1s0x92a48ef6f7d49edd:0x797d54dca2c2c5eb!8m2!3d-1.455859!4d-48.5048184!16s%2Fg%2F121_5xtm?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
+      "preco":"Acesso gratuito",
+      "horario": "Segunda a Sexta: 8h às 12h e 14h às 19h; Sábado: 8h à 12h; Domingo 6:30 - 12h e 16h - 20h",
+      "website": "https://www.catedraldebelem.com.br/",
+      "telefone": "091985591150",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo", "histórico", "teatro"],
+      "dicas": ""
+    },
+    {
+      "nome": "Portal da Amazônia",
+      "categoria":"Turístico",
+      "descricao":"N/A",
+      "endereco":"Jurunas, Belém - PA, 66025-110",
+      "google_maps_link":"https://www.google.com/maps/place/Portal+da+Amaz%C3%B4nia/@-1.4720482,-48.5053268,17z/data=!3m1!4b1!4m6!3m5!1s0x92a48e46af51918d:0x33224279ddd9c53f!8m2!3d-1.4720482!4d-48.5027465!16s%2Fg%2F11cn6cqb4t?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
+      "preco":"Acesso gratuito",
+      "horario": "N/A",
+      "website": "N/A",
+      "telefone": "N/A",
+      "tags": ["lazer", "gratuito", "tranquilo"],
+      "dicas": ""
+    },
+    {
+      "nome": "Complexo Turístico Ver-o-Rio",
+      "categoria":"cultura_e_lazer",
+      "descricao":"Sala de concertos de madeira em um lago, com uma passarela na margem do rio e barracas de petiscos locais.",
+      "endereco":"Av. Mal. Hermes, 1374 - Umarizal, Belém - PA, 66645-745",
+      "google_maps_link":"www.google.com/maps/place/Complexo+Turístico+Ver-o-Rio/@-1.4365066,-48.4936106,20.5z/data=!4m15!1m8!3m7!1s0x92a48eb0ced6b633:0x370dccfc998afb3c!2sComplexo+Turístico+Ver-o-Rio!8m2!3d-1.4364773!4d-48.4933825!10e1!16s%2Fg%2F122fck4v!3m5!1s0x92a48eb0ced6b633:0x370dccfc998afb3c!8m2!3d-1.4364773!4d-48.4933825!16s%2Fg%2F122fck4v?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
+      "preco":"Acesso gratuito",
+      "horario": "Aberto 24 horas",
+      "website": "N/A",
+      "telefone": "N/A",
+      "tags": ["cultural", "lazer", "gratuito", "tranquilo"],
+      "dicas": ""
     }
   ],
+  
+  
+  
+  
   "restaurantes": [
     {
       "nome": "Remanso do Bosque",

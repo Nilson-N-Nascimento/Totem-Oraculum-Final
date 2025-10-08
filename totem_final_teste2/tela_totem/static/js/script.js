@@ -160,92 +160,158 @@ const DataModule = (() => {
                 // Nazaré
                 {
                     title: '[Nazaré] Grand Mercure Belém do Pará',
-                    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://grand-mercure-hotel.hoteis-nortedobrasil.com/data/Images/OriginalPhoto/8668/866805/866805665/image-belem-para-grand-mercure-belem-do-para-85.JPEG',
                     description: 'Hotel de luxo localizado no coração de Nazaré. Oferece quartos espaçosos, piscina, academia e restaurante gourmet.',
                     link: 'https://maps.google.com/?cid=12707567479207810590'
                 },
                 {
                     title: '[Nazaré] Radisson Hotel Maiorana Jr',
-                    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://media-cdn.tripadvisor.com/media/photo-s/2e/1e/ca/9a/exterior.jpg',
                     description: 'Hotel executivo com excelente localização, centro de convenções e serviços de alto padrão.',
                     link: 'https://maps.google.com/?cid=7240872488110935040'
                 },
                 {
                     title: '[Nazaré] Casa Miriti',
-                    image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/657915048.jpg?k=9295a671f95e287004f076ae56274b0688b3e4d4064c4354189da3b092386ac2&o=&hp=1',
                     description: 'Pousada charmosa com ambiente acolhedor e decoração regional. Café da manhã com produtos locais.',
                     link: 'https://maps.google.com/?cid=11412879952302851930'
                 },
                 {
                     title: '[Nazaré] Vila Galé Collection Amazônia',
-                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://cdn0.casamentos.com.br/vendor/9512/3_2/960/jpg/vg-mares-aereas-4-baixa_13_109512-165159040772129.jpeg',
                     description: 'Resort urbano com temática amazônica, spa completo e gastronomia regional de primeira linha.',
                     link: 'https://maps.google.com/?cid=17067588425823328154'
                 },
                 {
                     title: '[Nazaré] Mercure Belém Boulevard',
-                    image: 'https://images.unsplash.com/photo-1521783593447-5702b9bfd267?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghjtdU_6sZhtOh2jlzZx498_zsv9zlWxnmEnopG_4Kq5ykzeKHHZOCyQoUJqEUlRujCEJ8_RReD2TyYAg5458T-BCLgyxip6WiWiCgSFU4Oxjn8qTAv-k11Gv3_WRlOYFGZttvoNtqXt4Q/s16000/20210715_190520.jpg',
                     description: 'Hotel moderno próximo às principais atrações. Dispõe de business center e restaurante internacional.',
                     link: 'https://maps.google.com/?cid=15537650569185071606'
                 },
+                {
+                    title: '[Nazaré] ABA HOTEL',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max500/606923715.jpg?k=5c65ddaacdf192092c7bc26f02879874db9db8c772100e08325826aef19bcd77&o=&hp=1',
+                    description: 'Hotel com ambiente agradável no bairro Nazaré.',
+                    link: 'https://maps.app.goo.gl/fBk5TJUK9zHcauiZ8'
+                },
+                {
+                    title: '[Nazaré] Princesa Hostel Belém',
+                    image: 'https://a0.muscache.com/pictures/hosting/Hosting-1116672965757933788/original/632ec783-0d97-484d-a77f-fb3216f63711.jpeg',
+                    description: 'Hostel com ambiente descontraído, e possui ótima avaliação.',
+                    link: 'https://maps.app.goo.gl/GLC38ryH8UZkNiz38'
+                },
+                {
+                    title: '[Nazaré] Hotel Filha do Cacique',
+                    image: 'https://hotel-filha-do-cacique.hoteis-nortedobrasil.com/data/Images/OriginalPhoto/16359/1635955/1635955971/image-belem-para-hotel-filha-do-cacique-13.JPEG',
+                    description: 'Hotel com bar, restaurante e acomodações confortáveis no bairro Nazaré.',
+                    link: 'https://maps.app.goo.gl/Tf7LBrn2R6AzXnycA'
+                },
+                {
+                    title: '[Nazaré] Antonieta Hostel',
+                    image: 'https://antonieta-hostel-belem.belemhotelsweb.com/data/Images/OriginalPhoto/16065/1606505/1606505773/image-belem-para-antonieta-hostel-e-bistro-1.JPEG',
+                    description: 'Hostel com bar de espresso e restaurante, ambiente acolhedor e moderno.',
+                    link: 'https://maps.app.goo.gl/CdfmxSqcFDECKDNQ9'
+                },
+
                 // Umarizal
                 {
                     title: '[Umarizal] Bristol Umarizal Hotel',
-                    image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://bristol-umarizal-hotel.hoteis-nortedobrasil.com/data/Images/OriginalPhoto/12826/1282677/1282677862/image-belem-para-bristol-umarizal-belem-30.JPEG',
                     description: 'Hotel contemporâneo no bairro do Umarizal, com ótima vista para o rio e café da manhã regional.',
                     link: 'https://maps.google.com/?cid=14734251171921066651'
                 },
                 {
                     title: '[Umarizal] Hotel Marajoara',
-                    image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/110587232.jpg?k=c60beb97dd748bdae9a2915073dcd9a32815ead33c1ad86e0ac3ac0b702bf371&o=&hp=1',
                     description: 'Hotel tradicional com localização privilegiada, próximo a restaurantes e área comercial.',
                     link: 'https://maps.google.com/?cid=14583373449200182746'
                 },
                 {
                     title: '[Umarizal] Beira Rio Hotel',
-                    image: 'https://images.unsplash.com/photo-1622396481328-7d02823a6b6a?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://images.trvl-media.com/lodging/7000000/6570000/6566800/6566772/31f3583f.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
                     description: 'Vista panorâmica para a Baía do Guajará, quartos confortáveis e café da manhã típico paraense.',
                     link: 'https://maps.google.com/?cid=4926919239508656658'
                 },
+
                 // Batista Campos
                 {
                     title: '[Batista Campos] Ibis Styles Belém do Pará',
-                    image: 'https://images.unsplash.com/photo-1590490359854-dfba19688d70?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://www.ahstatic.com/photos/b9k6_ho_00_p_1024x768.jpg',
                     description: 'Hotel moderno e econômico em localização central. Design contemporâneo e café da manhã incluso.',
                     link: 'https://maps.google.com/?cid=2051945496383410672'
                 },
                 {
                     title: '[Batista Campos] Ibis Styles Batista Campos',
-                    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/319146476.jpg?k=359af8e3176ba117d337f4c7e33f2860fc8c58beac656d5cc115a8be5dedb713&o=',
                     description: 'Próximo à Praça Batista Campos, oferece quartos funcionais e ambiente descontraído.',
                     link: 'https://maps.google.com/?cid=3944473430008833912'
                 },
                 // Campina
                 {
                     title: '[Campina] Hotel Grão Pará',
-                    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://images.trvl-media.com/lodging/16000000/15040000/15031100/15031069/e2371283.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
                     description: 'Hotel histórico no centro comercial, próximo ao Ver-o-Peso. Arquitetura preservada do século XIX.',
                     link: 'https://maps.google.com/?cid=17105774965698009488'
                 },
                 {
                     title: '[Campina] Hotel Central',
-                    image: 'https://images.unsplash.com/photo-1574102097290-8e48d2a7d651?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZVGHKr7vpfP7TrIQvPg13Ovg9VnMfZO_7w&s',
                     description: 'Localização estratégica para turismo e negócios, próximo aos principais pontos históricos.',
                     link: 'https://maps.google.com/?cid=14191326017888746238'
                 },
+                {
+                    title: '[Campina] Hotel Princesa Louçã',
+                    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/df/74/21/entrada-do-hotel.jpg?w=900&h=500&s=1',
+                    description: 'Hotel central em Belém, Pará, conhecido pelas suas vistas panorâmicas da Baía do Guajará e dos Túneis de Mangueiras',
+                    link: 'https://maps.app.goo.gl/97iR9qo99kvUg4CF7'
+                },
+                {
+                    title: '[Campina] Ecopousada Miriti',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/215756303.jpg?k=937be16c747147a50246e0ddc491a86cf72bb5a93517cbfe3cae6547dd2ed14a&o=&hp=1',
+                    link: 'https://maps.app.goo.gl/qYkR1V5TgEkQPwnaA'
+                },
+                // São Brás
+                {
+                    title: '[São Brás] Hotel dos Reis',
+                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuMaBEZ_koY_wAonnJwsat7wvaV0K9-x0yMA&s',
+                    description: 'Hotel aconchegante com boa localização, oferece quartos confortáveis e serviço atencioso.',
+                    link: 'https://maps.app.goo.gl/Suuah9EPXRB7JKUJ7'
+                },
+
                 // Cidade Velha
                 {
                     title: '[Cidade Velha] Atrium Quinta de Pedras',
-                    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop',
+                    image: 'https://cdn-hweb.hsystem.com.br/5b96bff7c19a483d58691a55/949527fd868f4064a1de95cd189ad672.jpg',
                     description: 'Hotel boutique em casarão histórico restaurado. Experiência única com vista para a Baía do Guajará.',
                     link: 'https://maps.google.com/?cid=7411968709892366437'
                 },
                 {
                     title: '[Cidade Velha] Hotel Portas da Amazônia',
-                    image: 'https://images.unsplash.com/photo-1587213811864-46e59e6f5a8b?q=80&w=2070&auto=format&fit=crop',
+                    image: 'https://images.trvl-media.com/lodging/5000000/4870000/4869200/4869184/c45f5f55.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
                     description: 'Hospedagem charmosa em prédio histórico, decoração temática amazônica e café regional.',
                     link: 'https://maps.google.com/?cid=2305896573021705637'
-                }
+                },
+                {
+                    title: '[Cidade Velha] Hotel Boutique Cidade Velha',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/608397740.jpg?k=9361de28b728b6c6c8e5383e0da01646c26d38341fedca41947d8979477400e5&o=&hp=1',
+                    description: 'Hotel a 4 km da Basílica e Santuário de Nossa Senhora de Nazaré e a 3 minutos a pé de Catedral da Sé.',
+                    link: 'https://maps.app.goo.gl/zdh49W96VFSwC9yy7'
+                },
+
+                // Reduto
+                {
+                    title: '[Reduto] Local Hostel Belém',
+                    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/750283663.jpg?k=a389fbea5fedcff2475a51dbe692aefa2cc1be3d554f04bb8d2b7f73a73ec0c3&o=&hp=1',
+                    description: 'Hostel moderno com bom ambiente e oferece quartos privativos e dormitórios.',
+                    link: 'https://maps.app.goo.gl/D4d4WP226XtXmHdf9'
+                },
+                {
+                    title: '[Reduto] Belém Hostel',
+                    image: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/c5/da/e0/belem-hostel-foto-kleberson.jpg',
+                    description: 'Hostel simples com quartos e dormitórios, cozinha comunitária e café da manhã grátis.',
+                    link: 'https://maps.app.goo.gl/EcXxf7kbmcAiUKK26'
+                },
+
             ]
         },
         'guia-turista': {

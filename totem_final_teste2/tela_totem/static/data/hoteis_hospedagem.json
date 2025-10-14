@@ -1,0 +1,86 @@
+[
+  {
+    "title": "[Nazaré] Grand Mercure Belém do Pará",
+    "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel de luxo localizado no coração de Nazaré. Oferece quartos espaçosos, piscina, academia e restaurante gourmet.",
+    "link": "https://maps.google.com/?cid=12707567479207810590"
+  },
+  {
+    "title": "[Nazaré] Radisson Hotel Maiorana Jr",
+    "image": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel executivo com excelente localização, centro de convenções e serviços de alto padrão.",
+    "link": "https://maps.google.com/?cid=7240872488110935040"
+  },
+  {
+    "title": "[Nazaré] Casa Miriti",
+    "image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+    "description": "Pousada charmosa com ambiente acolhedor e decoração regional. Café da manhã com produtos locais.",
+    "link": "https://maps.google.com/?cid=11412879952302851930"
+  },
+  {
+    "title": "[Nazaré] Vila Galé Collection Amazônia",
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop",
+    "description": "Resort urbano com temática amazônica, spa completo e gastronomia regional de primeira linha.",
+    "link": "https://maps.google.com/?cid=17067588425823328154"
+  },
+  {
+    "title": "[Nazaré] Mercure Belém Boulevard",
+    "image": "https://images.unsplash.com/photo-1521783593447-5702b9bfd267?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel moderno próximo às principais atrações. Dispõe de business center e restaurante internacional.",
+    "link": "https://maps.google.com/?cid=15537650569185071606"
+  },
+  {
+    "title": "[Umarizal] Bristol Umarizal Hotel",
+    "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel contemporâneo no bairro do Umarizal, com ótima vista para o rio e café da manhã regional.",
+    "link": "https://maps.google.com/?cid=14734251171921066651"
+  },
+  {
+    "title": "[Umarizal] Hotel Marajoara",
+    "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel tradicional com localização privilegiada, próximo a restaurantes e área comercial.",
+    "link": "https://maps.google.com/?cid=14583373449200182746"
+  },
+  {
+    "title": "[Umarizal] Beira Rio Hotel",
+    "image": "https://images.unsplash.com/photo-1622396481328-7d02823a6b6a?q=80&w=2070&auto=format&fit=crop",
+    "description": "Vista panorâmica para a Baía do Guajará, quartos confortáveis e café da manhã típico paraense.",
+    "link": "https://maps.google.com/?cid=4926919239508656658"
+  },
+  {
+    "title": "[Batista Campos] Ibis Styles Belém do Pará",
+    "image": "https://images.unsplash.com/photo-1590490359854-dfba19688d70?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel moderno e econômico em localização central. Design contemporâneo e café da manhã incluso.",
+    "link": "https://maps.google.com/?cid=2051945496383410672"
+  },
+  {
+    "title": "[Batista Campos] Ibis Styles Batista Campos",
+    "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop",
+    "description": "Próximo à Praça Batista Campos, oferece quartos funcionais e ambiente descontraído.",
+    "link": "https://maps.google.com/?cid=3944473430008833912"
+  },
+  {
+    "title": "[Campina] Hotel Grão Pará",
+    "image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hotel histórico no centro comercial, próximo ao Ver-o-Peso. Arquitetura preservada do século XIX.",
+    "link": "https://maps.google.com/?cid=17105774965698009488"
+  },
+  {
+    "title": "[Campina] Hotel Central",
+    "image": "https://images.unsplash.com/photo-1574102097290-8e48d2a7d651?q=80&w=2070&auto=format&fit=crop",
+    "description": "Localização estratégica para turismo e negócios, próximo aos principais pontos históricos.",
+    "link": "https://maps.google.com/?cid=14191326017888746238"
+  },
+  {
+    "title": "[Cidade Velha] Atrium Quinta de Pedras",
+    "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop",
+    "description": "Hotel boutique em casarão histórico restaurado. Experiência única com vista para a Baía do Guajará.",
+    "link": "https://maps.google.com/?cid=7411968709892366437"
+  },
+  {
+    "title": "[Cidade Velha] Hotel Portas da Amazônia",
+    "image": "https://images.unsplash.com/photo-1587213811864-46e59e6f5a8b?q=80&w=2070&auto=format&fit=crop",
+    "description": "Hospedagem charmosa em prédio histórico, decoração temática amazônica e café regional.",
+    "link": "https://maps.google.com/?cid=2305896573021705637"
+  }
+]

@@ -6,7 +6,7 @@
     --cor-texto-principal: #e0e0e0;
     --cor-texto-secundario: #b0c4b1;
     --cor-sombra: rgba(0, 0, 0, 0.5);
-    --chat-principal-height: 450px;
+    --chat-principal-height: 594px;
     --chat-border-radius: 15px;
     --chat-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
@@ -112,6 +112,7 @@ html, body {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .modulos-grid {
@@ -366,7 +367,7 @@ html, body {
     flex-direction: column;
     gap: 10px;
     background: rgba(255, 255, 255, 0.02);
-    max-height: 280px;
+    max-height: 424px;
 }
 
 .chat-container-principal .chat-input-container {
@@ -476,4 +477,257 @@ html, body {
 
 .chat-container-principal .chat-messages::-webkit-scrollbar-thumb:hover {
     background: var(--cor-destaque);
+}
+
+/* ================================================
+   ESTILOS DINÂMICOS (migrados do script.js)
+   Estilos para modal, chatbot e componentes dinâmicos
+   ================================================ */
+
+/* Estilos do Modal */
+.modal-item-list {
+    margin-top: 20px;
+}
+
+.item-card {
+    background-color: var(--cor-fundo);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid var(--cor-superficie);
+    align-items: center;
+}
+
+.item-card-image {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.item-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cor-destaque);
+    margin-bottom: 8px;
+}
+
+.item-card-description {
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.item-card-link {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.item-card-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos do Chatbot - Modal */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background: var(--cor-fundo);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    animation: slideIn 0.3s ease-out;
+}
+
+.user-message {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.bot-message {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.welcome-message {
+    max-width: 100%;
+    align-self: center;
+    text-align: center;
+}
+
+.message-content {
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user-message .message-content {
+    background: var(--cor-primaria);
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.bot-message .message-content {
+    background: var(--cor-superficie);
+    color: var(--cor-texto);
+    border-bottom-left-radius: 6px;
+}
+
+.welcome-message .message-content {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    border-radius: 15px;
+    font-size: 0.95rem;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: var(--cor-texto-secundario);
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+.typing-indicator .message-content {
+    background: var(--cor-superficie);
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 15px 20px;
+    gap: 10px;
+    background: var(--cor-superficie);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.2);
+}
+
+.chat-send-btn {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-send-btn:hover {
+    background: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.chat-send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Scrollbar personalizada para o chat */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--cor-primaria);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-secundaria);
+}
+
+/* Animação para as mensagens */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para chat modal */
+@media (max-width: 768px) {
+    .chat-container {
+        height: 400px;
+    }
+    
+    .chat-message {
+        max-width: 90%;
+    }
+    
+    .message-content {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
 }

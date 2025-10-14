@@ -21,6 +21,55 @@
  */
 
 // ===========================================
+// MÓDULO DE UTILITÁRIOS (Helpers Genéricos)
+// ===========================================
+const Utils = (() => {
+    /**
+     * Validação de objeto
+     * @param {*} obj - Objeto a validar
+     * @returns {boolean} True se objeto válido
+     */
+    const isValidObject = (obj) => obj && typeof obj === 'object';
+
+    /**
+     * Validação de array
+     * @param {*} arr - Array a validar
+     * @returns {boolean} True se array válido e não vazio
+     */
+    const isValidArray = (arr) => Array.isArray(arr) && arr.length > 0;
+
+    /**
+     * Fetch seguro com tratamento de erros
+     * @param {string} url - URL para fetch
+     * @param {string} errorMsg - Mensagem de erro customizada
+     * @returns {Promise<Object|null>} JSON parseado ou null
+     */
+    const safeFetch = async (url, errorMsg = 'Erro na requisição') => {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return await res.json();
+        } catch (e) {
+            console.error(errorMsg, e);
+            return null;
+        }
+    };
+
+    /**
+     * Formata link do Google Maps
+     * @param {Object} data - Objeto com google_maps_link ou nome
+     * @returns {string} HTML formatado do link
+     */
+    const formatMapLink = (data) => {
+        const link = data.google_maps_link || 
+                     `https://maps.google.com/?q=${encodeURIComponent((data.nome || data.title || 'Belém') + ' Belém')}`;
+        return `🗺️ Google Maps: ${link}\n`;
+    };
+
+    return { isValidObject, isValidArray, safeFetch, formatMapLink };
+})();
+
+// ===========================================
 // MÓDULO DE CONFIGURAÇÃO E SERVIÇOS DE API
 // ===========================================
 const ApiService = (() => {
@@ -105,7 +154,7 @@ const DataModule = (() => {
                 link: 'https://www.google.com/maps/search/?api=1&query=Estação+das+Docas+Belém'
             }, {
                 title: 'Basílica Santuário de Nazaré',
-                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/2b/6e/8e/basilica-de-nazare.jpg',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Bas%C3%ADlica_de_Nossa_Senhora_de_Nazar%C3%A9..jpg',
                 description: 'Monumento religioso e também marco da fé paraense. Sua arquitetura inspirada em basílicas europeias, vitrais e interior em mármore tornam o local lindo e imponente. Ponto final do famoso Círio de Nazaré.',
                 link: 'https://www.google.com/maps/search/?api=1&query=Av.+Nazaré,+1300+–+Nazaré,+Belém-PA'
             }, {
@@ -136,19 +185,10 @@ const DataModule = (() => {
             bg: 'https://turismo.santarem.pa.gov.br/images/IMG_4580.jpg',
             titulo: 'Culinária Regional',
             desc: 'A gastronomia paraense é um patrimônio de sabores. Desafie seu paladar com pratos autênticos e ingredientes da Amazônia.',
-            items: [{
-                title: 'Tacacá',
-                image: 'https://tudodelicious.com/wp-content/uploads/2025/03/Tacaca-Paraense-480x270.jpeg',
-                description: 'Caldo quente à base de tucupi e goma de tapioca, servido com jambu (que amortece a boca) e camarão seco.'
-            }, {
-                title: 'Maniçoba',
-                image: 'https://www.minhareceita.com.br/app/uploads/2025/01/R0125-manicoba-de-cogumelos-vegana-650x355-1.webp',
-                description: 'Conhecida como a "feijoada paraense", é feita com folhas moídas da maniva, cozidas por sete dias com carnes de porco.'
-            }, {
-                title: 'Açaí Paraense',
-                image: 'https://ufpa.br/wp-content/uploads/2024/01/Acai-746x423-1.jpg',
-                description: 'O verdadeiro açaí, sem açúcar, servido tradicionalmente com farinha d\'água e peixe frito ou charque.'
-            }]
+            items: [], // Carregado dinamicamente do JSON
+            loadItems: async function() {
+                return await Utils.safeFetch('/static/data/culinaria_regional.json', 'Erro ao carregar culinária') || [];
+            }
         },
         'hoteis-hospedagem': {
             id: 'hoteis-hospedagem',
@@ -156,97 +196,10 @@ const DataModule = (() => {
             bg: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop',
             titulo: 'Hotéis e Hospedagem',
             desc: 'Explore as melhores opções de hospedagem em Belém. Filtre por bairro e encontre o hotel ideal para sua estadia durante a COP 30.',
-            items: [
-                // Nazaré
-                {
-                    title: '[Nazaré] Grand Mercure Belém do Pará',
-                    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel de luxo localizado no coração de Nazaré. Oferece quartos espaçosos, piscina, academia e restaurante gourmet.',
-                    link: 'https://maps.google.com/?cid=12707567479207810590'
-                },
-                {
-                    title: '[Nazaré] Radisson Hotel Maiorana Jr',
-                    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel executivo com excelente localização, centro de convenções e serviços de alto padrão.',
-                    link: 'https://maps.google.com/?cid=7240872488110935040'
-                },
-                {
-                    title: '[Nazaré] Casa Miriti',
-                    image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Pousada charmosa com ambiente acolhedor e decoração regional. Café da manhã com produtos locais.',
-                    link: 'https://maps.google.com/?cid=11412879952302851930'
-                },
-                {
-                    title: '[Nazaré] Vila Galé Collection Amazônia',
-                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Resort urbano com temática amazônica, spa completo e gastronomia regional de primeira linha.',
-                    link: 'https://maps.google.com/?cid=17067588425823328154'
-                },
-                {
-                    title: '[Nazaré] Mercure Belém Boulevard',
-                    image: 'https://images.unsplash.com/photo-1521783593447-5702b9bfd267?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel moderno próximo às principais atrações. Dispõe de business center e restaurante internacional.',
-                    link: 'https://maps.google.com/?cid=15537650569185071606'
-                },
-                // Umarizal
-                {
-                    title: '[Umarizal] Bristol Umarizal Hotel',
-                    image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel contemporâneo no bairro do Umarizal, com ótima vista para o rio e café da manhã regional.',
-                    link: 'https://maps.google.com/?cid=14734251171921066651'
-                },
-                {
-                    title: '[Umarizal] Hotel Marajoara',
-                    image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel tradicional com localização privilegiada, próximo a restaurantes e área comercial.',
-                    link: 'https://maps.google.com/?cid=14583373449200182746'
-                },
-                {
-                    title: '[Umarizal] Beira Rio Hotel',
-                    image: 'https://images.unsplash.com/photo-1622396481328-7d02823a6b6a?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Vista panorâmica para a Baía do Guajará, quartos confortáveis e café da manhã típico paraense.',
-                    link: 'https://maps.google.com/?cid=4926919239508656658'
-                },
-                // Batista Campos
-                {
-                    title: '[Batista Campos] Ibis Styles Belém do Pará',
-                    image: 'https://images.unsplash.com/photo-1590490359854-dfba19688d70?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel moderno e econômico em localização central. Design contemporâneo e café da manhã incluso.',
-                    link: 'https://maps.google.com/?cid=2051945496383410672'
-                },
-                {
-                    title: '[Batista Campos] Ibis Styles Batista Campos',
-                    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Próximo à Praça Batista Campos, oferece quartos funcionais e ambiente descontraído.',
-                    link: 'https://maps.google.com/?cid=3944473430008833912'
-                },
-                // Campina
-                {
-                    title: '[Campina] Hotel Grão Pará',
-                    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hotel histórico no centro comercial, próximo ao Ver-o-Peso. Arquitetura preservada do século XIX.',
-                    link: 'https://maps.google.com/?cid=17105774965698009488'
-                },
-                {
-                    title: '[Campina] Hotel Central',
-                    image: 'https://images.unsplash.com/photo-1574102097290-8e48d2a7d651?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Localização estratégica para turismo e negócios, próximo aos principais pontos históricos.',
-                    link: 'https://maps.google.com/?cid=14191326017888746238'
-                },
-                // Cidade Velha
-                {
-                    title: '[Cidade Velha] Atrium Quinta de Pedras',
-                    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop',
-                    description: 'Hotel boutique em casarão histórico restaurado. Experiência única com vista para a Baía do Guajará.',
-                    link: 'https://maps.google.com/?cid=7411968709892366437'
-                },
-                {
-                    title: '[Cidade Velha] Hotel Portas da Amazônia',
-                    image: 'https://images.unsplash.com/photo-1587213811864-46e59e6f5a8b?q=80&w=2070&auto=format&fit=crop',
-                    description: 'Hospedagem charmosa em prédio histórico, decoração temática amazônica e café regional.',
-                    link: 'https://maps.google.com/?cid=2305896573021705637'
-                }
-            ]
+            items: [], // Carregado dinamicamente do JSON
+            loadItems: async function() {
+                return await Utils.safeFetch('/static/data/hoteis_hospedagem.json', 'Erro ao carregar hotéis') || [];
+            }
         },
         'guia-turista': {
             id: 'guia-turista',
@@ -254,19 +207,10 @@ const DataModule = (() => {
             bg: 'https://www.checkfront.com/wp-content/uploads/2022/06/tour-guide-rules.jpg',
             titulo: 'Guia do Visitante',
             desc: 'Informações essenciais para você explorar Belém com confiança e segurança. Consulte nossas dicas e aproveite sua visita ao máximo.',
-            items: [{
-                title: 'Dicas de Segurança',
-                image: 'https://images.unsplash.com/photo-1521994155325-42c380721787?q=80&w=2070&auto=format&fit=crop',
-                description: 'Fique atento aos seus pertences em locais movimentados. Evite exibir objetos de valor. À noite, prefira usar transportes por aplicativo ou táxis.'
-            }, {
-                title: 'Telefones Úteis',
-                image: 'https://images.unsplash.com/photo-1587560699334-cc426240169f?q=80&w=2070&auto=format&fit=crop',
-                description: 'Polícia Militar: 190 | SAMU (Ambulância): 192 | Bombeiros: 193. Mantenha esses números à mão para qualquer emergência.'
-            }, {
-                title: 'Transporte Sustentável',
-                image: 'https://images.unsplash.com/photo-1570125909239-74123iter00?q=80&w=2070&auto=format&fit=crop',
-                description: 'Belém incentiva o uso de transportes coletivos e bicicletas. Verifique as rotas de ônibus especiais para a COP30 e as estações de bicicletas compartilhadas pela cidade.'
-            }]
+            items: [], // Carregado dinamicamente do JSON
+            loadItems: async function() {
+                return await Utils.safeFetch('/static/data/guia_visitante.json', 'Erro ao carregar guia') || [];
+            }
         },
         'oraculum-ai': {
             id: 'oraculum-ai',
@@ -280,6 +224,9 @@ const DataModule = (() => {
     };
 
     // Função para carregar todos os módulos, combinando dados locais e da API
+    // OTIMIZAÇÃO 3: Lazy Loading de Notícias
+    let newsLoaded = false;
+    
     const loadAllModules = async () => {
         if (cachedModules) {
             return cachedModules; // Retorna os dados do cache se já existirem
@@ -288,21 +235,26 @@ const DataModule = (() => {
         UIModule.toggleLoading(true, 'Carregando conteúdo...');
 
         try {
-            // Busca as notícias da API em paralelo com a "busca" dos dados locais
-            const newsPromise = ApiService.fetchNews();
+            // Carrega módulos locais PRIMEIRO (sem API)
+            const localModules = Object.values(staticModulesData);
 
-            // Simula a busca dos outros módulos
-            const localModulesPromise = Promise.resolve(Object.values(staticModulesData));
-
-            const [newsItems, localModules] = await Promise.all([newsPromise, localModulesPromise]);
-
+            // Módulo de notícias com lazy loading
             const newsModule = {
                 id: 'noticias-eventos',
                 icone: 'fa-solid fa-bullhorn',
                 bg: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop',
                 titulo: 'Notícias e Eventos',
                 desc: 'Fique por dentro de tudo que acontece em Belém. Acesse as últimas notícias sobre a COP 30, a agenda cultural da cidade e comunicados oficiais.',
-                items: newsItems // Adiciona os itens de notícia buscados da API
+                items: [], // Vazio inicialmente
+                loadItems: async function() {
+                    if (!newsLoaded) {
+                        console.log('🔄 Carregando notícias (lazy)...');
+                        this.items = await ApiService.fetchNews();
+                        newsLoaded = true;
+                        console.log('✅ Notícias carregadas:', this.items.length);
+                    }
+                    return this.items;
+                }
             };
 
             // Combina e ordena os módulos
@@ -646,6 +598,20 @@ const ModalModule = (() => {
                 const itemElements = itemListContainer.querySelectorAll('.translatable');
                 await UIModule.updateTranslatable(Array.from(itemElements), currentLang);
             }
+        } else if (mod.loadItems) {
+            // OTIMIZAÇÃO 3: Carrega notícias sob demanda (lazy)
+            modalImg.style.display = 'block';
+            gameCanvas.style.display = 'none';
+            UIModule.setModalContentVisibility(true);
+            
+            console.log('📰 Carregando notícias lazy...');
+            const items = await mod.loadItems();
+            UIModule.renderItemList(items, id);
+            
+            if (currentLang !== 'pt') {
+                const itemElements = itemListContainer.querySelectorAll('.translatable');
+                await UIModule.updateTranslatable(Array.from(itemElements), currentLang);
+            }
         } else {
             modalImg.style.display = 'block';
             gameCanvas.style.display = 'none';
@@ -724,34 +690,52 @@ const ChatbotModule = (() => {
     // Por enquanto, usando modo de demonstração com fallback inteligente
     // Configuração da API - Use variáveis de ambiente em produção
     const API_KEY = window.GEMINI_API_KEY || 'SUA_CHAVE_AQUI'; // Configure em um arquivo separado
-    const API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent';
+    const API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash-lite:generateContent';
     
     let chatContainer = null;
     let messageHistory = [];
     let lastRequestTime = 0;
-    const RATE_LIMIT_MS = 2000; // 2 segundos entre requisições
+    const RATE_LIMIT_MS = 12000; // 12 segundos entre requisições para economia de cota
+    
+    // Sistema de cache local para respostas frequentes
+    const responseCache = new Map();
+    const CACHE_DURATION = 1000 * 60 * 60; // 1 hora
+    
+    // Função para gerar hash de pergunta (para cache)
+    const hashQuestion = (question) => {
+        return question.toLowerCase()
+            .trim()
+            .replace(/[^\w\s]/gi, '')
+            .substring(0, 100);
+    };
 
-    // Sistema de prompt para especializar a IA em Belém e COP 30
-    const SYSTEM_PROMPT = `Você é um guia turístico especialista em Belém do Pará e na COP 30 (Conferência das Nações Unidas sobre Mudanças Climáticas). Suas respostas devem ser:
-
-1. FOCADAS apenas em Belém do Pará, COP 30, turismo sustentável na região e cultura paraense
-2. CONCISAS (máximo 150 tokens por resposta)
-3. ÚTEIS para turistas visitando a cidade
-4. Em PORTUGUÊS BRASILEIRO
-5. Se perguntarem sobre outros assuntos não relacionados a Belém/COP 30, responda educadamente que você é especialista apenas nesses temas
-
-Temas que você pode abordar:
-- Pontos turísticos de Belém
-- Culinária paraense (açaí, tacacá, maniçoba, etc.)
-- Historia de Belém
-- COP 30 e sustentabilidade
-- Transporte na cidade
-- Hotéis e hospedagem
-- Cultura amazônica
-- Dicas de segurança para turistas
-- Eventos culturais`;
+    // Sistema de prompt otimizado para economia de tokens
+    // OTIMIZAÇÃO 2: Prompt ultra-comprimido (redução de ~15 tokens)
+    const SYSTEM_PROMPT = `Guia Belém/COP30. PT. Curto, útil, prático.`;
 
     // Respostas de fallback locais - Sistema Inteligente Expandido
+    // Sistema de Intenções Inteligentes - Carregado dinamicamente do JSON
+    let INTENT_PATTERNS = [];
+    
+    // Carrega intent patterns do JSON
+    const loadIntentPatterns = async () => {
+        if (INTENT_PATTERNS.length > 0) return INTENT_PATTERNS;
+        const data = await Utils.safeFetch('/static/data/intent_responses.json', 'Erro ao carregar intent patterns');
+        if (data) {
+            INTENT_PATTERNS = data;
+            console.log('✅ Intent patterns carregados:', INTENT_PATTERNS.length);
+        }
+        return INTENT_PATTERNS;
+    };
+    
+    // Inicializa patterns ao carregar módulo (eager loading para chat)
+    loadIntentPatterns();
+    
+    const DEPRECATED_INTENT_PATTERNS = [
+        // Deprecated: Intent patterns foram movidos para intent_responses.json
+        // Este array foi mantido apenas por compatibilidade temporária
+    ];
+
     const getFallbackResponse = (message) => {
         const msg = message.toLowerCase();
         const currentLang = LanguageModule.getCurrentLang();
@@ -759,6 +743,14 @@ Temas que você pode abordar:
         // Se não for português, traduzir a resposta automaticamente
         if (currentLang !== 'pt') {
             return getFallbackResponseTranslated(message, currentLang);
+        }
+        
+        // SISTEMA DE INTENÇÕES - Verifica padrões inteligentes primeiro
+        for (const pattern of INTENT_PATTERNS) {
+            if (pattern.keywords.some(keyword => msg.includes(keyword))) {
+                console.log(`✅ Intent detectada: ${pattern.intent}`);
+                return pattern.response;
+            }
         }
         
         // Cumprimentos e saudações
@@ -1086,8 +1078,19 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
         }
     };
     
+    // OTIMIZAÇÃO 4: Cache de busca local (memoização)
+    const searchCache = new Map();
+    const MAX_CACHE_SIZE = 100; // Limita tamanho do cache
+    
     const searchLocalData = (message, database) => {
         if (!database) return null;
+        
+        // Verifica cache primeiro
+        const cacheKey = message.toLowerCase().trim();
+        if (searchCache.has(cacheKey)) {
+            console.log('✅ Busca recuperada do cache:', cacheKey);
+            return searchCache.get(cacheKey);
+        }
         
         const msg = message.toLowerCase();
         let results = [];
@@ -1278,14 +1281,124 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
         return results.length > 0 ? results.slice(0, 5) : null; // Máximo 5 resultados
     };
     
-    const formatLocalDataResponse = (results) => {
+    // Nova função: Filtra e contextualiza resultados baseado na intent
+    const filterAndContextualizeResults = (results, message, intent) => {
+        if (!results || !Array.isArray(results)) return results;
+        
+        const msg = message.toLowerCase();
+        let filtered = [...results];
+        
+        // Filtragem específica por intent
+        switch(intent) {
+            case 'acessibilidade_fisica':
+                // Prioriza locais com informações de acessibilidade
+                filtered = filtered.filter(r => {
+                    const data = r.data;
+                    return data.acessivel || data.rampa || data.elevador || 
+                           (data.tags && data.tags.some(t => t.includes('acessível')));
+                });
+                break;
+                
+            case 'rico':
+                // Filtra apenas alta gastronomia e luxo
+                filtered = filtered.filter(r => {
+                    if (r.type === 'restaurantes') {
+                        return r.data.categoria === 'alta_gastronomia' || 
+                               r.data.categoria === 'sofisticado' ||
+                               (r.data.preco_medio && r.data.preco_medio.includes('R$ 200'));
+                    }
+                    if (r.type === 'hoteis') {
+                        return r.data.categoria === 'luxo' || r.data.categoria === '5_estrelas';
+                    }
+                    return false;
+                });
+                break;
+                
+            case 'economico':
+                // Filtra opções baratas
+                filtered = filtered.filter(r => {
+                    if (r.type === 'restaurantes') {
+                        return r.data.categoria === 'popular' || r.data.categoria === 'tradicional' ||
+                               (r.data.preco_medio && (r.data.preco_medio.includes('R$ 10') || 
+                                r.data.preco_medio.includes('R$ 20') || r.data.preco_medio.includes('R$ 30')));
+                    }
+                    if (r.type === 'hoteis') {
+                        return r.data.categoria === 'economico' || r.data.categoria === 'hostel';
+                    }
+                    return true;
+                });
+                break;
+                
+            case 'vegano':
+            case 'vegetariano':
+                // Filtra opções vegetarianas/veganas
+                filtered = filtered.filter(r => {
+                    const data = r.data;
+                    return data.vegano || data.vegetariano || 
+                           (data.especialidade && (data.especialidade.includes('vegano') || 
+                            data.especialidade.includes('vegetariano'))) ||
+                           (data.tags && data.tags.some(t => t.includes('vegano') || t.includes('vegetariano')));
+                });
+                break;
+                
+            case 'familia':
+                // Prioriza locais kids-friendly
+                filtered = filtered.filter(r => {
+                    const data = r.data;
+                    return data.kids_friendly || data.parque || data.familia ||
+                           (data.tags && data.tags.some(t => t.includes('família') || t.includes('crianças') || t.includes('familiar')));
+                });
+                break;
+                
+            case 'areas_verdes':
+                // Filtra apenas parques e áreas verdes
+                filtered = filtered.filter(r => {
+                    return r.type === 'pontos_turisticos' && 
+                           (r.data.tags && r.data.tags.some(t => 
+                               t.includes('parque') || t.includes('natureza') || 
+                               t.includes('verde') || t.includes('jardim')
+                           ));
+                });
+                break;
+                
+            case 'religioso':
+                // Filtra apenas templos religiosos
+                filtered = filtered.filter(r => {
+                    return r.type === 'pontos_turisticos' && 
+                           (r.data.tags && r.data.tags.some(t => 
+                               t.includes('igreja') || t.includes('catedral') || 
+                               t.includes('basílica') || t.includes('religioso')
+                           ));
+                });
+                break;
+        }
+        
+        return filtered.length > 0 ? filtered : results; // Se não encontrou nada específico, retorna tudo
+    };
+
+    const formatLocalDataResponse = (results, message = '', intent = null) => {
         try {
             if (!results || !Array.isArray(results) || results.length === 0) {
                 return null;
             }
             
-            let response = '📍 **Informações Detalhadas:**\n\n';
-            const maxResults = Math.min(4, results.length); // Aumentado para 4 resultados
+            // Filtra resultados baseado na intent
+            if (intent) {
+                results = filterAndContextualizeResults(results, message, intent);
+            }
+            
+            // Retorna apenas respostas contextualizadas da intent, SEM dados do database
+            if (intent && results.length === 0) {
+                return null; // Deixa a intent response do fallback responder
+            }
+            
+            // Se tem intent específica, não mostra lista genérica
+            if (intent) {
+                return null; // A resposta da intent já é suficiente
+            }
+            
+            let response = '📍 **Sugestões:**\n\n';
+            const maxResults = Math.min(3, results.length); // Reduzido para 3
             const processedResults = results.slice(0, maxResults);
             
             processedResults.forEach((result, index) => {
@@ -1393,7 +1506,17 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
             
             response += `\n\n🔗 *Todos os links do Google Maps são clicáveis para facilitar sua navegação!*`;
             
-            return response.trim() ? response : null;
+            const finalResponse = response.trim() ? response : null;
+            
+            // Armazenar no cache antes de retornar
+            if (searchCache.size >= MAX_CACHE_SIZE) {
+                const firstKey = searchCache.keys().next().value;
+                searchCache.delete(firstKey); // LRU eviction
+            }
+            searchCache.set(cacheKey, finalResponse);
+            console.log('✅ Busca armazenada no cache:', cacheKey);
+            
+            return finalResponse;
             
         } catch (error) {
             console.error('Erro ao formatar resposta local:', error);
@@ -1402,26 +1525,50 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
     };
 
     const callGeminiAPI = async (message, localData = null) => {
+        console.log('🧪 DEBUG: Iniciando callGeminiAPI');
+        console.log('🔑 API_KEY disponível:', !!API_KEY);
+        console.log('📝 Mensagem:', message);
+        console.log('💾 LocalData disponível:', !!localData);
+        
         if (!API_KEY) {
+            console.error('❌ API Key não configurada');
             throw new Error('API Key não configurada');
         }
         
+        // SISTEMA DE CACHE - Verifica cache antes de fazer requisição
+        const cacheKey = hashQuestion(message);
+        const cachedResponse = responseCache.get(cacheKey);
+        
+        if (cachedResponse && (Date.now() - cachedResponse.timestamp < CACHE_DURATION)) {
+            console.log('✅ Resposta recuperada do cache (economizando API)');
+            return cachedResponse.text;
+        }
+        
+        // RATE LIMITING - Apenas para chamadas reais à API (não cache/fallback)
+        const now = Date.now();
+        if (now - lastRequestTime < RATE_LIMIT_MS) {
+            const waitTime = Math.ceil((RATE_LIMIT_MS - (now - lastRequestTime)) / 1000);
+            console.log(`⏳ Rate limit ativo. Aguarde ${waitTime}s antes de chamar API novamente`);
+            throw new Error(`⏳ Aguarde ${waitTime} segundos antes de fazer outra consulta à API`);
+        }
+        lastRequestTime = now;
+        
         try {
-            // Enriquece o prompt com dados locais se disponíveis
+            // Prompt otimizado (menos tokens)
             let enhancedPrompt = SYSTEM_PROMPT;
             if (localData) {
-                enhancedPrompt += `\n\nDADOS LOCAIS DETALHADOS:\n${localData}\n\nIMPORTANTE: Use essas informações para dar uma resposta COMPLETA e DETALHADA. SEMPRE inclua:\n- Links dos locais (Google Maps quando disponível)\n- Preços específicos\n- Horários de funcionamento\n- Dicas úteis\n- Múltiplas opções quando possível\n- Informações de contato quando relevantes\n- Endereços completos\nSeja informativo mas amigável, como um guia turístico local experiente.`;
+                enhancedPrompt += `\n\nDados: ${localData.substring(0, 500)}\n\nUse as informações acima. Inclua links, preços, horários e dicas.`;
             }
             
             const requestBody = {
                 contents: [{
                     parts: [{
-                        text: `${enhancedPrompt}\n\nPergunta do usuário: ${message}`
+                        text: `${enhancedPrompt}\n\nPergunta: ${message}`
                     }]
                 }],
                 generationConfig: {
-                    maxOutputTokens: localData ? 250 : 180, // Mais tokens para respostas completas com links
-                    temperature: 0.7, // Mais criativo para respostas elaboradas
+                    maxOutputTokens: localData ? 250 : 180,
+                    temperature: 0.7,
                     topP: 0.8,
                     topK: 40
                 }
@@ -1435,19 +1582,37 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
                 body: JSON.stringify(requestBody)
             });
             
+            console.log('🌐 Response status:', response.status);
+            console.log('🌐 Response ok:', response.ok);
+            
             if (!response.ok) {
                 const errorText = await response.text();
-                throw new Error(`HTTP error! status: ${response.status}`);
+                console.error('❌ HTTP error:', response.status, errorText);
+                throw new Error(`HTTP error! status: ${response.status}, details: ${errorText}`);
             }
 
             const data = await response.json();
+            console.log('📦 API Response data:', data);
             
             if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                console.error('❌ Invalid API response structure:', data);
                 throw new Error('Resposta inválida da API');
             }
 
-            return data.candidates[0].content.parts[0].text;
+            const resultText = data.candidates[0].content.parts[0].text;
+            console.log('✅ API response text:', resultText);
+            
+            // Salvar no cache
+            responseCache.set(cacheKey, {
+                text: resultText,
+                timestamp: Date.now()
+            });
+            console.log('💾 Resposta salva no cache');
+            
+            return resultText;
         } catch (error) {
+            console.error('❌ Erro completo na API:', error);
+            console.error('❌ Stack trace:', error.stack);
             throw error;
         }
     };
@@ -1484,15 +1649,8 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
     };
 
     const handleUserMessage = async (message) => {
+        console.log('💬 handleUserMessage iniciado com:', message);
         if (!message.trim()) return;
-        
-        // Rate limiting para evitar spam
-        const now = Date.now();
-        if (now - lastRequestTime < RATE_LIMIT_MS) {
-            addMessage('⏳ Aguarde um momento antes de enviar outra mensagem...', false);
-            return;
-        }
-        lastRequestTime = now;
         
         addMessage(message, true);
         
@@ -1507,34 +1665,58 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
         
         // Simula tempo de "processamento" para melhor UX
         setTimeout(async () => {
+            console.log('⏱️ Timeout iniciado, processando mensagem...');
             try {
-                // 1. Carrega a base de dados local com fallback
+                const msg = message.toLowerCase();
+                
+                // DETECÇÃO DE INTENT PRIMEIRO
+                let detectedIntent = null;
+                for (const pattern of INTENT_PATTERNS) {
+                    if (pattern.keywords.some(keyword => msg.includes(keyword))) {
+                        detectedIntent = pattern.intent;
+                        console.log(`✅ Intent detectada: ${detectedIntent}`);
+                        
+                        // Retorna resposta da intent diretamente SEM buscar database
+                        messagesContainer.removeChild(typingDiv);
+                        addMessage(pattern.response, false);
+                        messageHistory.push({ user: message, bot: pattern.response });
+                        return; // IMPORTANTE: Sai aqui!
+                    }
+                }
+                
+                // Se não detectou intent específica, continua com busca normal
+                console.log('📋 Carregando base de dados...');
                 let database;
                 try {
                     database = await loadLocalDatabase();
+                    console.log('✅ Base de dados carregada:', !!database);
                 } catch (dbError) {
-                    console.warn('Erro ao carregar base de dados local:', dbError);
+                    console.warn('⚠️ Erro ao carregar base de dados local:', dbError);
                     database = window.localDatabase || null;
                 }
                 
                 // 2. Busca por dados locais relevantes com proteção
+                console.log('🔍 Iniciando busca por dados locais...');
                 let localResults = null;
                 if (database) {
                     try {
                         localResults = searchLocalData(message, database);
+                        console.log('🎯 Resultados da busca local:', localResults);
                     } catch (searchError) {
-                        console.warn('Erro na busca de dados locais:', searchError);
+                        console.warn('⚠️ Erro na busca de dados locais:', searchError);
                         localResults = null;
                     }
+                } else {
+                    console.warn('❌ Base de dados não disponível');
                 }
                 
-                // 3. Se encontrou dados locais, processa com segurança
+                // 3. Se encontrou dados locais E não tem intent, processa
                 if (localResults && Array.isArray(localResults) && localResults.length > 0) {
                     console.log('📋 Usando dados locais específicos:', localResults.length, 'resultados');
                     
                     let localResponse;
                     try {
-                        localResponse = formatLocalDataResponse(localResults);
+                        localResponse = formatLocalDataResponse(localResults, message, detectedIntent);
                     } catch (formatError) {
                         console.warn('Erro ao formatar dados locais:', formatError);
                         localResponse = null;
@@ -1552,6 +1734,10 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
                             }
                         } catch (aiError) {
                             console.log('IA falhou, usando apenas dados locais:', aiError.message);
+                            // Se foi rate limit, informa ao usuário de forma amigável
+                            if (aiError.message && aiError.message.includes('Aguarde')) {
+                                console.log('⏳ Rate limit detectado, mas dados locais disponíveis');
+                            }
                         }
                         
                         // Usa dados locais como backup
@@ -1563,16 +1749,23 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
                 }
                 
                 // 4. Fallback: tenta IA sozinha
+                console.log('🔄 Tentando IA sem dados locais...');
                 try {
                     const response = await callGeminiAPI(message);
+                    console.log('📝 Resposta da IA:', response);
                     if (response && response.trim()) {
                         messagesContainer.removeChild(typingDiv);
                         addMessage(response, false);
                         messageHistory.push({ user: message, bot: response });
+                        console.log('✅ Resposta da IA enviada com sucesso');
                         return;
                     }
                 } catch (aiError) {
-                    console.log('API falhou:', aiError.message);
+                    console.error('❌ API falhou com erro completo:', aiError);
+                    // Se foi rate limit, não mostra como erro - vai direto pro fallback
+                    if (aiError.message && aiError.message.includes('Aguarde')) {
+                        console.log('⏳ Rate limit ativo - usando fallback inteligente');
+                    }
                 }
                 
                 // 5. Último recurso: resposta padrão
@@ -1606,6 +1799,10 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
         }, 1000 + Math.random() * 1000); // 1-2 segundos de delay realístico
     };
 
+    // OTIMIZAÇÃO 1: Debouncing para evitar chamadas duplicadas
+    let typingTimer = null;
+    const TYPING_DELAY = 800; // 800ms de delay
+    
     const initChatInterface = (targetContainer = null) => {
         // Se targetContainer é fornecido, usar ele; senão usar o modal (compatibilidade)
         const container = targetContainer || UIModule.elements.itemListContainer;
@@ -1666,22 +1863,58 @@ Especialista en **Belém do Pará** y **COP 30**. ¡Tu guía local inteligente!
         const sendBtn = chatContainer.querySelector('.chat-send-btn');
         
         const sendMessage = () => {
+            // Limpa timer anterior
+            clearTimeout(typingTimer);
+            
+            // Aguarda usuário parar de digitar
+            typingTimer = setTimeout(() => {
+                const message = input.value.trim();
+                if (message) {
+                    handleUserMessage(message);
+                    input.value = '';
+                }
+            }, TYPING_DELAY);
+        };
+        
+        sendBtn.addEventListener('click', () => {
+            clearTimeout(typingTimer); // Clique envia imediatamente
             const message = input.value.trim();
             if (message) {
                 handleUserMessage(message);
                 input.value = '';
             }
-        };
+        });
         
-        sendBtn.addEventListener('click', sendMessage);
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                sendMessage();
+                clearTimeout(typingTimer); // Enter envia imediatamente
+                const message = input.value.trim();
+                if (message) {
+                    handleUserMessage(message);
+                    input.value = '';
+                }
             }
         });
         
         // Foco automático no input
         setTimeout(() => input.focus(), 100);
+        
+        // Prefetch de queries comuns para cache
+        setTimeout(() => {
+            const commonQueries = [
+                'onde comer',
+                'o que visitar',
+                'pontos turísticos',
+                'hotéis em belém',
+                'restaurantes típicos'
+            ];
+            
+            console.log('🔄 Iniciando prefetch de queries comuns...');
+            commonQueries.forEach(query => {
+                searchLocalData(query, CACHED_DATABASE);
+            });
+            console.log('✅ Prefetch completo - cache aquecido');
+        }, 2000); // Aguarda 2s após carregar página
     };
 
     const clearChatInterface = () => {
@@ -1763,270 +1996,3 @@ const AppModule = (() => {
 
 // Inicializar quando DOM estiver carregado
 document.addEventListener('DOMContentLoaded', AppModule.init);
-
-
-// ===========================================
-// CSS ADICIONAL (para o conteúdo dinâmico do modal)
-// ===========================================
-// Para que tudo funcione em um único local, injetamos o CSS necessário via JS.
-// O ideal é colocar isso no seu arquivo .css, mas para manter tudo aqui, fazemos assim:
-const dynamicStyles = `
-    .error-message {
-        color: #ff8a8a;
-        font-size: 1.2rem;
-        text-align: center;
-        padding: 40px;
-    }
-    .modal-item-list {
-        margin-top: 20px;
-    }
-    .item-card {
-        background-color: var(--cor-fundo);
-        border-radius: 10px;
-        margin-bottom: 20px;
-        display: flex;
-        gap: 20px;
-        padding: 15px;
-        border: 1px solid var(--cor-superficie);
-        align-items: center;
-    }
-    .item-card-image {
-        width: 120px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-        flex-shrink: 0;
-    }
-    .item-card-content {
-        display: flex;
-        flex-direction: column;
-    }
-    .item-card-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--cor-destaque);
-        margin-bottom: 8px;
-    }
-    .item-card-description {
-        font-size: 1rem;
-        color: var(--cor-texto-secundario);
-        line-height: 1.6;
-        flex-grow: 1;
-    }
-    .item-card-link {
-        color: var(--cor-primaria);
-        text-decoration: none;
-        font-weight: 600;
-        margin-top: 10px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .item-card-link:hover {
-        text-decoration: underline;
-    }
-    #loading-indicator {
-        display: none; /* Inicia escondido */
-        align-items: center;
-        gap: 10px;
-        font-size: 1.1rem;
-    }
-    
-    /* Estilos do Chatbot */
-    .chat-container {
-        display: flex;
-        flex-direction: column;
-        height: 500px;
-        background: var(--cor-fundo);
-        border: 2px solid var(--cor-primaria);
-        border-radius: 15px;
-        overflow: hidden;
-        margin-top: 20px;
-    }
-    
-    .chat-header {
-        background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
-        color: white;
-        padding: 15px 20px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        background: rgba(255, 255, 255, 0.02);
-    }
-    
-    .chat-message {
-        display: flex;
-        flex-direction: column;
-        max-width: 80%;
-    }
-    
-    .user-message {
-        align-self: flex-end;
-        align-items: flex-end;
-    }
-    
-    .bot-message {
-        align-self: flex-start;
-        align-items: flex-start;
-    }
-    
-    .welcome-message {
-        max-width: 100%;
-        align-self: center;
-        text-align: center;
-    }
-    
-    .message-content {
-        padding: 12px 18px;
-        border-radius: 18px;
-        font-size: 1rem;
-        line-height: 1.4;
-        word-wrap: break-word;
-    }
-    
-    .user-message .message-content {
-        background: var(--cor-primaria);
-        color: white;
-        border-bottom-right-radius: 6px;
-    }
-    
-    .bot-message .message-content {
-        background: var(--cor-superficie);
-        color: var(--cor-texto);
-        border-bottom-left-radius: 6px;
-    }
-    
-    .welcome-message .message-content {
-        background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
-        color: white;
-        border-radius: 15px;
-        font-size: 0.95rem;
-    }
-    
-    .message-time {
-        font-size: 0.8rem;
-        color: var(--cor-texto-secundario);
-        margin-top: 5px;
-        padding: 0 5px;
-    }
-    
-    .typing-indicator .message-content {
-        background: var(--cor-superficie);
-        color: var(--cor-texto-secundario);
-        font-style: italic;
-    }
-    
-    .chat-input-container {
-        display: flex;
-        padding: 15px 20px;
-        gap: 10px;
-        background: var(--cor-superficie);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .chat-input {
-        flex: 1;
-        padding: 12px 15px;
-        border: 2px solid transparent;
-        border-radius: 25px;
-        background: var(--cor-fundo);
-        color: var(--cor-texto);
-        font-size: 1rem;
-        outline: none;
-        transition: all 0.3s ease;
-    }
-    
-    .chat-input:focus {
-        border-color: var(--cor-primaria);
-        box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.2);
-    }
-    
-    .chat-send-btn {
-        background: var(--cor-primaria);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .chat-send-btn:hover {
-        background: var(--cor-secundaria);
-        transform: scale(1.05);
-    }
-    
-    .chat-send-btn:active {
-        transform: scale(0.95);
-    }
-    
-    /* Scrollbar personalizada para o chat */
-    .chat-messages::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    .chat-messages::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-    }
-    
-    .chat-messages::-webkit-scrollbar-thumb {
-        background: var(--cor-primaria);
-        border-radius: 10px;
-    }
-    
-    .chat-messages::-webkit-scrollbar-thumb:hover {
-        background: var(--cor-secundaria);
-    }
-    
-    /* Animação para as mensagens */
-    .chat-message {
-        animation: slideIn 0.3s ease-out;
-    }
-    
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    /* Responsividade */
-    @media (max-width: 768px) {
-        .chat-container {
-            height: 400px;
-        }
-        
-        .chat-message {
-            max-width: 90%;
-        }
-        
-        .message-content {
-            padding: 10px 14px;
-            font-size: 0.95rem;
-        }
-    }
-`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = dynamicStyles;
-document.head.appendChild(styleSheet);

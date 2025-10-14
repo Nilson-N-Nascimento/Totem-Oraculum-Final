@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Tacacá",
+    "image": "https://tudodelicious.com/wp-content/uploads/2025/03/Tacaca-Paraense-480x270.jpeg",
+    "description": "Caldo quente à base de tucupi e goma de tapioca, servido com jambu (que amortece a boca) e camarão seco."
+  },
+  {
+    "title": "Maniçoba",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Morcilla_de_cebolla_tapa.jpg",
+    "description": "Conhecida como a \"feijoada paraense\", é feita com folhas moídas da maniva, cozidas por sete dias com carnes de porco."
+  },
+  {
+    "title": "Açaí Paraense",
+    "image": "https://ufpa.br/wp-content/uploads/2024/01/Acai-746x423-1.jpg",
+    "description": "O verdadeiro açaí, sem açúcar, servido tradicionalmente com farinha d'água e peixe frito ou charque."
+  },
+  {
+    "title": "Pato no Tucupi",
+    "image": "https://media.istockphoto.com/id/1395683282/pt/foto/traditional-north-brazilian-food-of-pato-no-tucupi.jpg?s=612x612&w=0&k=20&c=EYbuxpozU86Y9n2lcZxxX9pslI9vPSYnd7T4Zdi86So=",
+    "description": "Prato tradicional servido com tucupi e jambu, típico do Círio de Nazaré e símbolo máximo da culinária paraense."
+  },
+  {
+    "title": "Vatapá Paraense",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Acaraj%C3%A9_2.jpg",
+    "description": "Versão amazônica do vatapá, feita com farinha d'água, camarão seco, leite de coco e temperos regionais."
+  },
+  {
+    "title": "Caruru",
+    "image": "https://canaldareceita.com.br/wp-content/uploads/2025/03/CARURU-720x720.jpg",
+    "description": "Prato de origem afro-amazônica preparado com quiabo, camarão seco e temperos marcantes."
+  },
+  {
+    "title": "Farinha d'água com Peixe Frito",
+    "image": "https://www.acritica.com/image/policy:1.216699.1648174334:1648174334/image.jpg?f=default&w=1200",
+    "description": "Clássico do cotidiano paraense: peixe fresco frito acompanhado de farinha d'água crocante e vinagrete."
+  },
+  {
+    "title": "Filhote ao Molho de Tucupi",
+    "image": "https://static.wixstatic.com/media/540f1d_69aaf27f2c3c45daa5831a1869eafd82~mv2.jpg/v1/fill/w_755,h_584,al_c,lg_1,q_85/540f1d_69aaf27f2c3c45daa5831a1869eafd82~mv2.jpg",
+    "description": "Peixe nobre amazônico servido com molho de tucupi e acompanhado de jambu, oferecendo sabor marcante e único."
+  },
+  {
+    "title": "Cupuaçu",
+    "image": "https://cloudfront-us-east-1.images.arcpublishing.com/estadao/KOR3GJJBZREM5KECNNLAATBLLQ.jpeg",
+    "description": "Fruta típica amazônica usada em sucos, doces e sobremesas, com sabor levemente ácido e aroma intenso."
+  },
+  {
+    "title": "Castanha-do-Pará",
+    "image": "https://img.odcdn.com.br/wp-content/uploads/2023/12/castanha-do-Para-1.jpg",
+    "description": "Semente rica em proteínas e gorduras boas, símbolo do Pará e usada em diversas receitas doces e salgadas."
+  }
+]
